@@ -1,0 +1,89 @@
+body {
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #0a0a1a;
+    color: #00ccff;
+}
+
+header {
+    background-color: #1a1a2a;
+    color: #00ccff;
+    text-align: center;
+    padding: 1em;
+    border-bottom: 2px solid #00ccff;
+}
+
+h1, h2 {
+    text-shadow: 0 0 5px #00ccff;
+}
+
+main {
+    flex: 1;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.project {
+    width: 300px;
+    padding: 1em;
+    border: 1px solid #00ccff;
+    border-radius: 5px;
+    background-color: #1a1a2a;
+    box-shadow: 0 0 10px #00ccff;
+}
+
+.project h3 {
+    color: #00ccff;
+    margin-top: 0;
+}
+
+.project p {
+    margin-bottom: 1em;
+}
+
+.project a {
+    color: #00ccff;
+    text-decoration: none;
+    border: 1px solid #00ccff;
+    padding: 0.5em 1em;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.project a:hover {
+    background-color: #00ccff;
+    color: #1a1a2a;
+}
+
+footer {
+    background-color: #1a1a2a;
+    color: #00ccff;
+    text-align: center;
+    padding: 1em;
+    border-top: 2px solid #00ccff;
+}
+
+footer a {
+    color: #00ccff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    text-shadow: 0 0 5px #00ccff;
+}
