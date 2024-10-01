@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualités IT - ITvenn</title>
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_actualites_it.css">
 </head>
 <body>
     <header>
@@ -25,7 +26,9 @@
     
     <main>
         <h1>Actualités IT</h1>
-        <p>Contenu des actualités IT à venir...</p>
+        <div id="rss-feed-container">
+            <ul id="rss-feed"></ul>
+        </div>
     </main>
 
     <footer>
@@ -34,5 +37,8 @@
         <a href="https://tryhackme.com/p/ITvenn" target="_blank">TryHackMe</a>
         <a href="https://github.com/ITvenn8520" target="_blank">GitHub</a>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="actualites_it.js"></script>
 </body>
 </html>

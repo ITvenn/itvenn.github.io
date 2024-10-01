@@ -1,0 +1,44 @@
+#rss-feed-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#rss-feed {
+    list-style-type: none;
+    padding: 0;
+}
+
+#rss-feed li {
+    background-color: #ffffff;
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+#rss-feed li:hover {
+    transform: translateY(-5px);
+}
+
+#rss-feed a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#rss-feed h2 {
+    color: #1e90ff;
+    margin-top: 0;
+    font-size: 1.2em;
+}
+
+#rss-feed .date {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+}
+
+#rss-feed p {
+    margin: 0;
+    color: #333;
+}
