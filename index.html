@@ -22,28 +22,49 @@
             padding: 1em;
             border-bottom: 2px solid #00ccff;
         }
-        h1 {
-            font-size: 2.5em;
+        h1, h2 {
             text-shadow: 0 0 5px #00ccff;
         }
         main {
             flex: 1;
             padding: 2em;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            flex-direction: column;
+            align-items: center;
         }
-        article {
-            width: 30%;
-            margin-bottom: 1em;
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2em;
+            margin-top: 2em;
+        }
+        .project {
+            width: 300px;
             padding: 1em;
             border: 1px solid #00ccff;
             border-radius: 5px;
             background-color: #1a1a2a;
             box-shadow: 0 0 10px #00ccff;
         }
-        h2 {
+        .project h3 {
             color: #00ccff;
+            margin-top: 0;
+        }
+        .project p {
+            margin-bottom: 1em;
+        }
+        .project a {
+            color: #00ccff;
+            text-decoration: none;
+            border: 1px solid #00ccff;
+            padding: 0.5em 1em;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .project a:hover {
+            background-color: #00ccff;
+            color: #1a1a2a;
         }
         footer {
             background-color: #1a1a2a;
@@ -69,18 +90,24 @@
     </header>
     
     <main>
-        <article>
-            <h2>L'Intelligence Artificielle révolutionne la cybersécurité</h2>
-            <p>Les dernières avancées en IA permettent de détecter les menaces informatiques plus rapidement et efficacement que jamais. Découvrez comment les entreprises utilisent ces technologies pour renforcer leur sécurité.</p>
-        </article>
-        <article>
-            <h2>Le Cloud Computing en 2023 : Tendances et Innovations</h2>
-            <p>Le cloud continue d'évoluer à un rythme effréné. Cet article explore les nouvelles tendances, telles que le edge computing et les architectures multi-cloud, qui façonnent l'avenir de l'informatique distribuée.</p>
-        </article>
-        <article>
-            <h2>La 5G et l'Internet des Objets : Un Duo Puissant</h2>
-            <p>L'arrivée de la 5G ouvre de nouvelles possibilités pour l'IoT. Explorez comment cette combinaison transforme les villes intelligentes, l'industrie 4.0 et notre vie quotidienne.</p>
-        </article>
+        <h2>Mes Projets GitHub</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Projet 1</h3>
+                <p>Description brève du projet 1. Expliquez ici ce que fait votre projet et les technologies utilisées.</p>
+                <a href="https://github.com/ITvenn8520/projet1" target="_blank">Voir sur GitHub</a>
+            </div>
+            <div class="project">
+                <h3>Projet 2</h3>
+                <p>Description brève du projet 2. Mettez en avant les points forts et l'objectif de ce projet.</p>
+                <a href="https://github.com/ITvenn8520/projet2" target="_blank">Voir sur GitHub</a>
+            </div>
+            <div class="project">
+                <h3>Projet 3</h3>
+                <p>Description brève du projet 3. Expliquez comment ce projet démontre vos compétences en cybersécurité.</p>
+                <a href="https://github.com/ITvenn8520/projet3" target="_blank">Voir sur GitHub</a>
+            </div>
+        </div>
     </main>
 
     <footer>
