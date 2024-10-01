@@ -2,22 +2,22 @@ const RSS_FEEDS = [
     {
         name: 'Le Monde Informatique',
         url: 'https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml',
-        logo: '/img/lmi-logo.png'
+        logo: 'https://images.itnewsinfo.com/lmi/site/sprite_logo-XL.png'
     },
     {
         name: 'Korben.info',
         url: 'https://korben.info/feed',
-        logo: '/img/korben-logo.png'
+        logo: 'https://korben.info/img/logo-small.svg'
     },
     {
         name: 'ZDNet',
         url: 'https://www.zdnet.fr/feeds/rss/actualites/',
-        logo: '/img/zdnet-logo.png'
+        logo: 'https://www.zdnet.fr/wp-content/themes/cnet-zdnet/zdnet/assets/images/icons/svg/zdnet-logo--midnght-horizontal.svg'
     },
     {
         name: 'ITConnect.fr',
         url: 'https://itconnect.fr/feed/',
-        logo: '/img/itconnect-logo.png'
+        logo: 'https://www.it-connect.fr/wp-content-itc/uploads/2017/06/IT-Connect_Flat_072017_Small_v2.png'
     }
 ];
 
