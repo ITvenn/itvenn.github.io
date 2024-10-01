@@ -23,7 +23,7 @@ header {
 }
 
 .logo {
-    max-height: 200px; /* Augmenté pour un logo plus grand */
+    max-height: 150px; /* Augmenté pour un logo plus grand */
     width: auto;
     transition: transform 0.3s ease; /* Pour un effet de zoom au survol */
 }
