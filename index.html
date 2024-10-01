@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le site de ITvenn</title>
+    <title>Accueil - ITvenn</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,27 +13,63 @@
                 <a href="index.html"><img src="/img/logo.png" alt="Logo ITvenn" class="logo"></a>
             </div>
             <ul class="menu">
-                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html" class="active">Accueil</a></li>
                 <li><a href="projets_github.html">Projets GitHub</a></li>
-                <li><a href="#actualites">Actualités IT</a></li>
-                <li><a href="#vulnerabilites">Vulnérabilités Cyber</a></li>
-                <li><a href="#ressources">Ressources</a></li>
-                <li><a href="#about">À propos</a></li>
+                <li><a href="actualites.html">Actualités IT</a></li>
+                <li><a href="vulnerabilites.html">Vulnérabilités Cyber</a></li>
+                <li><a href="ressources.html">Ressources</a></li>
+                <li><a href="about.html">À propos</a></li>
             </ul>
         </nav>
     </header>
     
     <main>
-        <section id="projets">
-            <h2>Mes Projets GitHub</h2>
-            <!-- Contenu des projets -->
+        <section id="hero">
+            <h1>Bienvenue sur ITvenn</h1>
+            <p>Explorez le monde de la cybersécurité et de l'automatisation IT</p>
         </section>
-        
-        <!-- Ajoutez d'autres sections pour les autres éléments du menu -->
+
+        <section id="about-summary">
+            <h2>À propos de ITvenn</h2>
+            <p>ITvenn est votre source d'information sur la cybersécurité, l'automatisation IT et les dernières tendances technologiques. Que vous soyez un professionnel chevronné ou un passionné curieux, vous trouverez ici des ressources précieuses pour enrichir vos connaissances.</p>
+        </section>
+
+        <section id="featured-content">
+            <h2>Contenu en vedette</h2>
+            <div class="featured-grid">
+                <div class="featured-item">
+                    <h3>Projets GitHub</h3>
+                    <p>Découvrez mes derniers scripts d'automatisation et outils de sécurité.</p>
+                    <a href="projets_github.html" class="btn">Explorer les projets</a>
+                </div>
+                <div class="featured-item">
+                    <h3>Actualités IT</h3>
+                    <p>Restez informé des dernières nouvelles et tendances du monde de l'IT.</p>
+                    <a href="actualites.html" class="btn">Lire les actualités</a>
+                </div>
+                <div class="featured-item">
+                    <h3>Vulnérabilités Cyber</h3>
+                    <p>Apprenez-en plus sur les dernières menaces et comment vous en protéger.</p>
+                    <a href="vulnerabilites.html" class="btn">Explorer les vulnérabilités</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="recent-updates">
+            <h2>Mises à jour récentes</h2>
+            <ul>
+                <li><a href="#">Nouveau script d'installation automatique de GLPI</a></li>
+                <li><a href="#">Analyse de la dernière faille de sécurité majeure</a></li>
+                <li><a href="#">Guide : Sécuriser votre infrastructure cloud</a></li>
+            </ul>
+        </section>
     </main>
 
     <footer>
-        <!-- Le contenu du footer reste inchangé -->
+        <p>Retrouvez-moi sur :</p>
+        <a href="https://www.linkedin.com/in/vincent-hamel-9b9422229/" target="_blank">LinkedIn</a>
+        <a href="https://tryhackme.com/p/ITvenn" target="_blank">TryHackMe</a>
+        <a href="https://github.com/ITvenn8520" target="_blank">GitHub</a>
     </footer>
 </body>
 </html>
