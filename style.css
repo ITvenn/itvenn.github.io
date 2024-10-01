@@ -13,7 +13,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1em;
+    padding: 1.5em; /* Augmenté pour donner plus d'espace au logo */
     background-color: #ffffff;
     border-bottom: 2px solid #1e90ff;
     position: sticky;
@@ -23,8 +23,9 @@ header {
 }
 
 .logo {
-    max-height: 60px; /* Ajustez cette valeur selon la taille souhaitée */
+    max-height: 200px; /* Augmenté pour un logo plus grand */
     width: auto;
+    transition: transform 0.3s ease; /* Pour un effet de zoom au survol */
 }
 
 h1, h2 {
