@@ -13,6 +13,11 @@ const RSS_FEEDS = [
         name: 'ZDNet',
         url: 'https://www.zdnet.fr/feeds/rss/actualites/',
         logo: '/img/zdnet-logo.png'
+    },
+    {
+        name: 'ITConnect.fr',
+        url: 'https://itconnect.fr/feed/',
+        logo: '/img/itconnect-logo.png'
     }
 ];
 
