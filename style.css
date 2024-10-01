@@ -114,10 +114,16 @@ nav {
 }
 
 main {
-    flex: 1;
+    display: flex;
+    justify-content: space-between;
     padding: 2em;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.main-content {
+    flex: 1;
+    margin-right: 2em;
 }
 
 h2 {
@@ -256,4 +262,77 @@ footer a:hover {
 
 #recent-updates a:hover {
     text-decoration: underline;
+}
+
+#recent-updates {
+    width: 250px; /* Réduit la largeur */
+    background-color: #f0f8ff;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 100px; /* Ajustez cette valeur selon la hauteur de votre header */
+    align-self: flex-start;
+    max-height: 300px; /* Limite la hauteur maximale */
+    overflow-y: auto;
+}
+
+#recent-updates h2 {
+    color: #1e90ff;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-size: 1.2em; /* Réduit la taille du titre */
+}
+
+.updates-container {
+    overflow-y: auto;
+    max-height: calc(100% - 30px); /* Ajusté pour le titre plus petit */
+}
+
+#recent-updates table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em; /* Réduit la taille de la police */
+}
+
+#recent-updates th,
+#recent-updates td {
+    padding: 0.3em; /* Réduit le padding */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#recent-updates th {
+    background-color: #1e90ff;
+    color: white;
+    font-weight: normal; /* Réduit le poids de la police */
+}
+
+#recent-updates a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#recent-updates a:hover {
+    color: #1e90ff;
+    text-decoration: underline;
+}
+
+/* Styles pour les écrans plus petits */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .main-content {
+        margin-right: 0;
+        margin-bottom: 2em;
+    }
+
+    #recent-updates {
+        width: 100%;
+        position: static;
+        max-height: none;
+    }
 }
