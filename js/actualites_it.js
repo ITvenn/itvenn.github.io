@@ -1,57 +1,69 @@
 const RSS_FEEDS = [
     {
         name: 'Le Monde Informatique',
-        url: 'https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml'
+        url: 'https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml',
+        logo: '/img/lmi-logo.png'
     },
     {
         name: 'Korben.info',
-        url: 'https://korben.info/feed'
+        url: 'https://korben.info/feed',
+        logo: '/img/korben-logo.png'
+    },
+    {
+        name: 'ZDNet',
+        url: 'https://www.zdnet.fr/feeds/rss/actualites/',
+        logo: '/img/zdnet-logo.png'
     }
 ];
 
-const RSS2JSON_URL = 'https://api.rss2json.com/v1/api.json?rss_url=';
+function createRSSFeedElement(feed) {
+    const feedElement = document.createElement('div');
+    feedElement.className = 'rss-feed';
+    feedElement.innerHTML = `
+        <div class="rss-feed-header">
+            <img src="${feed.logo}" alt="${feed.name} logo" class="rss-feed-logo">
+            <h2 class="rss-feed-title">${feed.name}</h2>
+        </div>
+        <ul class="rss-feed-list">
+            <li>Chargement des actualités...</li>
+        </ul>
+    `;
+    return feedElement;
+}
 
-async function fetchRSSFeeds() {
-    const feedContainer = document.getElementById('rss-feed');
-    feedContainer.innerHTML = '<li>Chargement des actualités...</li>';
+function updateRSSFeedElement(feedElement, items) {
+    const listElement = feedElement.querySelector('.rss-feed-list');
+    listElement.innerHTML = items.map(item => `
+        <li class="rss-feed-item">
+            <a href="${item.link}" target="_blank">
+                <div class="rss-feed-item-title">${item.title}</div>
+                <div class="rss-feed-item-date">${new Date(item.pubDate).toLocaleDateString('fr-FR')}</div>
+            </a>
+        </li>
+    `).join('');
+}
 
-    try {
-        const feedPromises = RSS_FEEDS.map(feed => 
-            axios.get(RSS2JSON_URL + encodeURIComponent(feed.url))
-        );
+async function fetchRSSFeed(feed) {
+    const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`);
+    const data = await response.json();
+    return data.items;
+}
 
-        const responses = await Promise.all(feedPromises);
-        const feeds = responses.map(response => response.data);
-
-        displayRSSFeeds(feeds);
-    } catch (error) {
-        console.error('Erreur lors de la récupération des flux RSS:', error);
-        feedContainer.innerHTML = '<li>Impossible de charger les actualités pour le moment.</li>';
+async function initRSSFeeds() {
+    const container = document.getElementById('rss-feeds-container');
+    
+    for (const feed of RSS_FEEDS) {
+        const feedElement = createRSSFeedElement(feed);
+        container.appendChild(feedElement);
+        
+        try {
+            const items = await fetchRSSFeed(feed);
+            updateRSSFeedElement(feedElement, items.slice(0, 5));
+        } catch (error) {
+            console.error(`Erreur lors de la récupération du flux RSS pour ${feed.name}:`, error);
+            feedElement.querySelector('.rss-feed-list').innerHTML = '<li>Impossible de charger les actualités pour le moment.</li>';
+        }
     }
 }
 
-function displayRSSFeeds(feeds) {
-    const feedContainer = document.getElementById('rss-feed');
-    let feedHTML = '';
-
-    feeds.forEach((feed, index) => {
-        feedHTML += `<h2>${RSS_FEEDS[index].name}</h2>`;
-        feed.items.slice(0, 5).forEach(item => {
-            const date = new Date(item.pubDate).toLocaleDateString('fr-FR');
-            feedHTML += `
-                <li>
-                    <a href="${item.link}" target="_blank">
-                        <h3>${item.title}</h3>
-                        <p class="date">${date}</p>
-                        <p>${item.description.slice(0, 150)}...</p>
-                    </a>
-                </li>
-            `;
-        });
-    });
-
-    feedContainer.innerHTML = feedHTML;
-}
-
-console.log('Script loaded and executed');
-fetchRSSFeeds();
+document.addEventListener('DOMContentLoaded', initRSSFeeds);
