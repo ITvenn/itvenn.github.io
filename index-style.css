@@ -126,8 +126,69 @@ main {
     margin-right: 2em;
 }
 
-h2 {
+.sidebar {
+    width: 250px;
+}
+
+#recent-updates, #it-news {
+    background-color: #f0f8ff;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 2em;
+}
+
+#recent-updates h2, #it-news h2 {
     color: #1e90ff;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-size: 1.2em;
+}
+
+.updates-container, .news-container {
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+#recent-updates table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+#recent-updates th,
+#recent-updates td {
+    padding: 0.3em;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#recent-updates th {
+    background-color: #1e90ff;
+    color: white;
+    font-weight: normal;
+}
+
+#it-news ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#it-news li {
+    margin-bottom: 0.5em;
+    font-size: 0.9em;
+}
+
+#recent-updates a, #it-news a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#recent-updates a:hover, #it-news a:hover {
+    color: #1e90ff;
+    text-decoration: underline;
 }
 
 /* Styles pour les projets et autres sections */
@@ -330,9 +391,11 @@ footer a:hover {
         margin-bottom: 2em;
     }
 
-    #recent-updates {
+    .sidebar {
         width: 100%;
-        position: static;
+    }
+
+    #recent-updates, #it-news {
         max-height: none;
     }
 }
