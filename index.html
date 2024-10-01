@@ -6,21 +6,25 @@
     <title>Le site de ITvenn</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', monospace;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            background-color: #0a0a1a;
+            color: #00ccff;
         }
         header {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #1a1a2a;
+            color: #00ccff;
             text-align: center;
             padding: 1em;
+            border-bottom: 2px solid #00ccff;
         }
         h1 {
             font-size: 2.5em;
+            text-shadow: 0 0 5px #00ccff;
         }
         main {
             flex: 1;
@@ -33,18 +37,29 @@
             width: 30%;
             margin-bottom: 1em;
             padding: 1em;
-            border: 1px solid #ddd;
+            border: 1px solid #00ccff;
             border-radius: 5px;
+            background-color: #1a1a2a;
+            box-shadow: 0 0 10px #00ccff;
+        }
+        h2 {
+            color: #00ccff;
         }
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #1a1a2a;
+            color: #00ccff;
             text-align: center;
             padding: 1em;
+            border-top: 2px solid #00ccff;
         }
         footer a {
-            color: #4CAF50;
+            color: #00ccff;
             margin: 0 10px;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 5px #00ccff;
         }
     </style>
 </head>
