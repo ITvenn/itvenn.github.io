@@ -17,18 +17,25 @@
     display: flex;
     align-items: center;
     border-bottom: 2px solid #1e90ff;
+    height: 70px; /* Définir une hauteur fixe pour l'en-tête */
 }
 
 .rss-feed-logo {
-    width: 50px;
-    height: 50px;
+    width: 50px; /* Largeur fixe */
+    height: 50px; /* Hauteur fixe */
     margin-right: 1em;
+    object-fit: contain; /* Maintient les proportions de l'image */
+    object-position: center; /* Centre l'image dans son conteneur */
 }
 
 .rss-feed-title {
     font-size: 1.2em;
     color: #1e90ff;
     margin: 0;
+    flex-grow: 1; /* Permet au titre de prendre l'espace restant */
+    white-space: nowrap; /* Empêche le titre de passer à la ligne */
+    overflow: hidden; /* Cache le texte qui dépasse */
+    text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est trop long */
 }
 
 .rss-feed-list {
