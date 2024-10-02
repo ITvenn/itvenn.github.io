@@ -19,14 +19,13 @@ header {
 }
 
 nav {
-    padding: 0 20px; /* Réduisez le padding vertical */
+    padding: 10px 20px;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px; /* Ajoutez une hauteur fixe correspondant à la hauteur du logo */
 }
 
 .logo-container {
@@ -35,9 +34,31 @@ nav {
 }
 
 .logo {
-    max-height: 60px; /* Assurez-vous que cette valeur correspond à la hauteur de votre logo */
+    max-height: 60px; /* Ajustez selon la taille de votre logo */
     width: auto;
     transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: all 0.3s ease;
 }
 
 .menu {
@@ -45,14 +66,10 @@ nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    height: 100%; /* Assurez-vous que le menu occupe toute la hauteur */
 }
 
 .menu li {
     margin-left: 20px;
-    display: flex;
-    align-items: center;
-    height: 100%;
 }
 
 .menu li a {
@@ -61,10 +78,7 @@ nav {
     font-weight: 600;
     font-size: 1.1em;
     transition: color 0.3s ease;
-    padding: 0 0.5em;
-    display: flex;
-    align-items: center;
-    height: 100%;
+    padding: 0.5em 0;
 }
 
 .menu a:hover {
@@ -164,7 +178,11 @@ nav {
 @media screen and (min-width: 769px) {
     .nav-container {
         flex-grow: 1;
-        justify-content: space-between;
+        justify-content: flex-start;
+    }
+
+    .menu-toggle {
+        display: none;
     }
 
     .menu {
