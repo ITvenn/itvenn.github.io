@@ -66,10 +66,15 @@ nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    align-items: center; /* Ajout de cette ligne pour aligner verticalement les éléments du menu */
+    height: 60px; /* Ajout de cette ligne pour correspondre à la hauteur du logo */
 }
 
 .menu li {
     margin-left: 20px;
+    display: flex; /* Ajout de cette ligne */
+    align-items: center; /* Ajout de cette ligne */
+    height: 100%; /* Ajout de cette ligne */
 }
 
 .menu li a {
@@ -79,6 +84,9 @@ nav {
     font-size: 1.1em;
     transition: color 0.3s ease;
     padding: 0.5em 0;
+    display: flex; /* Ajout de cette ligne */
+    align-items: center; /* Ajout de cette ligne */
+    height: 100%; /* Ajout de cette ligne */
 }
 
 .menu a:hover {
@@ -178,11 +186,7 @@ nav {
 @media screen and (min-width: 769px) {
     .nav-container {
         flex-grow: 1;
-        justify-content: flex-start;
-    }
-
-    .menu-toggle {
-        display: none;
+        justify-content: space-between; /* Modifié de flex-start à space-between */
     }
 
     .menu {
