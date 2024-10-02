@@ -1,36 +1,42 @@
+/* Styles spécifiques pour la page des actualités IT */
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
 #rss-feeds-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2em;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 20px;
 }
 
 .rss-feed {
-    background-color: #ffffff;
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
 }
 
 .rss-feed-header {
     background-color: #f0f8ff;
-    padding: 1em;
+    padding: 15px;
     display: flex;
     align-items: center;
     border-bottom: 2px solid #1e90ff;
-    height: 70px;
 }
 
 .rss-feed-logo {
-    width: 50px;
-    height: 50px;
-    margin-right: 1em;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
     object-fit: contain;
-    object-position: center;
 }
 
 .rss-feed-title {
@@ -47,13 +53,12 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
+    max-height: 400px;
     overflow-y: auto;
-    max-height: 300px;
-    flex-grow: 1;
 }
 
 .rss-feed-item {
-    padding: 0.5em 1em;
+    padding: 15px;
     border-bottom: 1px solid #f0f0f0;
 }
 
@@ -68,9 +73,9 @@
 }
 
 .rss-feed-item-title {
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: bold;
-    margin-bottom: 0.2em;
+    margin-bottom: 5px;
 }
 
 .rss-feed-item-date {
@@ -78,7 +83,7 @@
     color: #666;
 }
 
-/* Barre de défilement personnalisée */
+/* Styles pour la barre de défilement personnalisée */
 .rss-feed-list::-webkit-scrollbar {
     width: 8px;
 }
@@ -96,88 +101,13 @@
     background: #555;
 }
 
-@media (max-width: 768px) {
+/* Styles responsives */
+@media screen and (max-width: 768px) {
     #rss-feeds-container {
         grid-template-columns: 1fr;
     }
-}
 
-/* Styles pour le menu responsive */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1000;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 5px 0;
-    transition: all 0.3s ease;
-}
-
-@media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #f8f8f8;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .menu.active {
-        display: flex;
-    }
-
-    .menu li {
-        margin: 0;
-        text-align: center;
-    }
-
-    .menu li a {
-        display: block;
-        padding: 15px;
-    }
-
-    /* Animation du menu hamburger */
-    .menu-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-    }
-}
-
-@media screen and (min-width: 769px) {
-    .nav-container {
-        flex-grow: 1;
-        justify-content: flex-start;
-    }
-
-    .menu-toggle {
-        display: none;
-    }
-
-    .menu {
-        display: flex;
-        justify-content: flex-end;
-        flex-grow: 1;
+    .rss-feed-list {
+        max-height: 300px;
     }
 }
