@@ -109,6 +109,7 @@
     border: none;
     cursor: pointer;
     padding: 10px;
+    z-index: 1000;
 }
 
 .menu-toggle span {
@@ -129,7 +130,7 @@
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 100%;
         left: 0;
         width: 100%;
         background-color: #f8f8f8;
@@ -161,5 +162,22 @@
 
     .menu-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -7px);
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .nav-container {
+        flex-grow: 1;
+        justify-content: flex-start;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: flex-end;
+        flex-grow: 1;
     }
 }
