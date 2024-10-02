@@ -202,11 +202,6 @@ main {
 .main-content {
     flex: 1;
     margin-right: 2em;
-    max-width: 250mm; /* Largeur d'une feuille A4 */
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
 }
 
 .sidebar {
