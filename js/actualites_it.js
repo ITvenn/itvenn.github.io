@@ -61,9 +61,23 @@ function createRSSFeedElement(feed) {
     return feedElement;
 }
 
+function isWithinLastWeek(dateString) {
+    const articleDate = new Date(dateString);
+    const oneWeekAgo = new Date();
+    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+    return articleDate >= oneWeekAgo;
+}
+
 function updateRSSFeedElement(feedElement, items) {
     const listElement = feedElement.querySelector('.rss-feed-list');
-    listElement.innerHTML = items.map(item => `
+    const recentItems = items.filter(item => isWithinLastWeek(item.pubDate));
+    
+    if (recentItems.length === 0) {
+        listElement.innerHTML = '<li class="rss-feed-item">Pas d\'articles cette semaine</li>';
+        return;
+    }
+    
+    listElement.innerHTML = recentItems.map(item => `
         <li class="rss-feed-item">
             <a href="${item.link}" target="_blank">
                 <div class="rss-feed-item-title">${item.title}</div>
@@ -88,10 +102,10 @@ async function initRSSFeeds() {
         
         try {
             const items = await fetchRSSFeed(feed);
-            updateRSSFeedElement(feedElement, items.slice(0, 15)); // Afficher 15 articles au lieu de 5
+            updateRSSFeedElement(feedElement, items);
         } catch (error) {
             console.error(`Erreur lors de la récupération du flux RSS pour ${feed.name}:`, error);
-            feedElement.querySelector('.rss-feed-list').innerHTML = '<li>Impossible de charger les actualités pour le moment.</li>';
+            feedElement.querySelector('.rss-feed-list').innerHTML = '<li class="rss-feed-item">Impossible de charger les actualités pour le moment.</li>';
         }
     }
 }

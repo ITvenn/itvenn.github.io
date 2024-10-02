@@ -1,12 +1,13 @@
 #rss-feeds-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2em;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .rss-feed {
-    flex: 1 1 calc(50% - 1em);
-    min-width: 300px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -21,25 +22,25 @@
     display: flex;
     align-items: center;
     border-bottom: 2px solid #1e90ff;
-    height: 70px; /* Définir une hauteur fixe pour l'en-tête */
+    height: 70px;
 }
 
 .rss-feed-logo {
-    width: 50px; /* Largeur fixe */
-    height: 50px; /* Hauteur fixe */
+    width: 50px;
+    height: 50px;
     margin-right: 1em;
-    object-fit: contain; /* Maintient les proportions de l'image */
-    object-position: center; /* Centre l'image dans son conteneur */
+    object-fit: contain;
+    object-position: center;
 }
 
 .rss-feed-title {
     font-size: 1.2em;
     color: #1e90ff;
     margin: 0;
-    flex-grow: 1; /* Permet au titre de prendre l'espace restant */
-    white-space: nowrap; /* Empêche le titre de passer à la ligne */
-    overflow: hidden; /* Cache le texte qui dépasse */
-    text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est trop long */
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .rss-feed-list {
@@ -47,7 +48,7 @@
     padding: 0;
     margin: 0;
     overflow-y: auto;
-    max-height: 300px; /* Hauteur maximale pour la liste déroulante */
+    max-height: 300px;
     flex-grow: 1;
 }
 
@@ -67,7 +68,7 @@
 }
 
 .rss-feed-item-title {
-    font-size: 0.9em; /* Réduire la taille de la police */
+    font-size: 0.9em;
     font-weight: bold;
     margin-bottom: 0.2em;
 }
@@ -77,7 +78,7 @@
     color: #666;
 }
 
-/* Ajouter une barre de défilement personnalisée */
+/* Barre de défilement personnalisée */
 .rss-feed-list::-webkit-scrollbar {
     width: 8px;
 }
@@ -98,8 +99,5 @@
 @media (max-width: 768px) {
     #rss-feeds-container {
         grid-template-columns: 1fr;
-    }
-    .rss-feed {
-        flex: 1 1 100%;
     }
 }
