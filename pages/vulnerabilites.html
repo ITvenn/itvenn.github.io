@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vulnérabilités Cyber - ITvenn</title>
     <link rel="stylesheet" href="/styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-rss/3.3.0/jquery.rss.min.js"></script>
 </head>
 <body>
     <header>
@@ -32,7 +34,13 @@
     
     <main>
         <h1>Vulnérabilités Cyber</h1>
-        <p>Contenu sur les vulnérabilités cyber à venir...</p>
+        <p>Découvrez les dernières vulnérabilités cyber rapportées :</p>
+        
+        <h2>Flux RSS des CVE</h2>
+        <div id="rss-feeds">
+            <div id="cve-feed"></div>
+            <div id="nist-feed"></div>
+        </div>
     </main>
 
     <footer>
@@ -60,6 +68,23 @@
                 }
             });
         });
-        </script>
+
+        // Ajout des flux RSS
+        $(document).ready(function() {
+            $("#cve-feed").rss("https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss.xml", {
+                limit: 5,
+                effect: 'slideFastSynced',
+                layoutTemplate: "<ul>{entries}</ul>",
+                entryTemplate: '<li><strong>{title}</strong><br/>{bodyPlain}</li>'
+            });
+
+            $("#nist-feed").rss("https://www.nist.gov/blogs/cybersecurity-insights/rss.xml", {
+                limit: 5,
+                effect: 'slideFastSynced',
+                layoutTemplate: "<ul>{entries}</ul>",
+                entryTemplate: '<li><strong>{title}</strong><br/>{bodyPlain}</li>'
+            });
+        });
+    </script>
 </body>
 </html>
