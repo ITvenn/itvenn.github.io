@@ -10,7 +10,7 @@ body {
 }
 
 .page-container {
-    max-width: 250mm; /* Largeur d'une feuille A4 */
+    max-width: 270mm; /* Largeur d'une feuille A4 */
     width: 100%;
     margin: 0 auto;
     background-color: #ffffff; /* Fond blanc pour le contenu */
