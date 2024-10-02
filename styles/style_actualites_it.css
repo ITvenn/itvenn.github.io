@@ -1,9 +1,11 @@
 /* Styles spécifiques pour la page des actualités IT */
 
 .main-content {
-    max-width: 1200px;
+    max-width: 310mm; /* Largeur d'une feuille A4 */
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -13,7 +15,7 @@ h1 {
 
 #rss-feeds-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
@@ -102,12 +104,22 @@ h1 {
 }
 
 /* Styles responsives */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 310mm) {
+    .main-content {
+        padding: 10px;
+    }
+
     #rss-feeds-container {
         grid-template-columns: 1fr;
     }
 
     .rss-feed-list {
         max-height: 300px;
+    }
+}
+
+@media screen and (min-width: 211mm) and (max-width: 420mm) {
+    #rss-feeds-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
