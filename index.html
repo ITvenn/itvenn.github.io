@@ -15,24 +15,15 @@
                 <span></span>
             </button>
             <div class="logo-container">
-                <a href="/index.html"><img src="/img/logo.png" alt="Logo ITvenn" class="logo"></a>
-            </div>
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Rechercher...">
-                <button id="search-button" aria-label="Rechercher">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                </button>
+                <a href="index.html"><img src="/img/logo.png" alt="Logo ITvenn" class="logo"></a>
             </div>
             <ul class="menu">
-                <li><a href="/index.html" class="active">Accueil</a></li>
-                <li><a href="/pages/projets_github.html">Projets GitHub</a></li>
-                <li><a href="/pages/actualites_it.html">Actualités IT</a></li>
-                <li><a href="/pages/vulnerabilites.html">Vulnérabilités Cyber</a></li>
-                <li><a href="/pages/ressources.html">Ressources</a></li>
-                <li><a href="/pages/about.html">À propos</a></li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="projets_github.html">Projets GitHub</a></li>
+                <li><a href="actualites_it.html">Actualités IT</a></li>
+                <li><a href="vulnerabilites_cyber.html">Vulnérabilités Cyber</a></li>
+                <li><a href="ressources.html">Ressources</a></li>
+                <li><a href="about.html">À propos</a></li>
             </ul>
         </nav>
     </header>
@@ -125,31 +116,17 @@
     document.addEventListener('DOMContentLoaded', function() {
         const menuToggle = document.querySelector('.menu-toggle');
         const menu = document.querySelector('.menu');
-        const searchContainer = document.querySelector('.search-container');
-        const searchButton = document.getElementById('search-button');
-        const searchInput = document.getElementById('search-input');
 
         menuToggle.addEventListener('click', function() {
             menu.classList.toggle('active');
             menuToggle.classList.toggle('active');
         });
 
-        searchButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            searchContainer.classList.toggle('active');
-            if (searchContainer.classList.contains('active')) {
-                searchInput.focus();
-            }
-        });
-
-        // Fermer le menu et la recherche lorsqu'on clique en dehors
+        // Fermer le menu lorsqu'on clique en dehors
         document.addEventListener('click', function(event) {
             if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
                 menu.classList.remove('active');
                 menuToggle.classList.remove('active');
-            }
-            if (!searchContainer.contains(event.target)) {
-                searchContainer.classList.remove('active');
             }
         });
     });
