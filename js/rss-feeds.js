@@ -32,7 +32,7 @@ $(document).ready(function() {
     );
 
     loadRSSFeed(
-        "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml",
+        "https://www.nist.gov/news-events/cybersecurity/rss.xml",
         "#nist-feed",
         "Impossible de charger le flux NIST. Veuillez réessayer plus tard."
     );
