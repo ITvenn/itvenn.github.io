@@ -2,7 +2,7 @@ const RSS_FEEDS = [
     {
         name: 'Le Monde Informatique',
         url: 'https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml',
-        logo: 'https://images.itnewsinfo.com/lmi/site/sprite_logo-XL.png'
+        logo: 'http://www.phoenixjp.net/news/fr/logos/logoLMINFO.gif'
     },
     {
         name: 'Korben.info',
@@ -15,9 +15,39 @@ const RSS_FEEDS = [
         logo: 'https://www.zdnet.fr/wp-content/themes/cnet-zdnet/zdnet/assets/images/icons/svg/zdnet-logo--midnght-horizontal.svg'
     },
     {
-        name: 'ITConnect.fr',
-        url: 'https://itconnect.fr/feed/',
-        logo: 'https://www.it-connect.fr/wp-content-itc/uploads/2017/06/IT-Connect_Flat_072017_Small_v2.png'
+        name: 'LeBigData.fr',
+        url: 'https://www.lebigdata.fr/feed',
+        logo: 'http://www.phoenixjp.net/news/fr/logos/logoLEBIGDATA.gif'
+    },
+    {
+        name: 'FrAndroid',
+        url: 'https://www.frandroid.com/feed',
+        logo: 'http://www.phoenixjp.net/news/fr/logos/logoFRANDROID.gif'
+    },
+    {
+        name: 'Cowcotland',
+        url: 'https://www.cowcotland.com/rss/news.xml',
+        logo: 'http://www.phoenixjp.net/news/fr/logos/logoCOWCOT.gif'
+    },
+    {
+        name: "Tom's Hardware",
+        url: 'https://www.tomshardware.fr/feed/',
+        logo: 'http://www.phoenixjp.net/news/fr/logos/logoPPC.gif'
+    },
+    {
+        name: 'Overclocking Made in France',
+        url: 'https://www.overclocking.com/feed/',
+        logo: 'http://www.phoenixjp.net/news/fr/logos/logoOCMIF.gif'
+    },
+    {
+        name: 'Generation-NT',
+        url: 'https://www.generation-nt.com/export/rss.xml',
+        logo: 'http://www.phoenixjp.net/news/fr/logos/logoGENNT.gif'
+    },
+    {
+        name: 'Les Numériques',
+        url: 'https://www.lesnumeriques.com/rss.xml',
+        logo: 'http://www.phoenixjp.net/news/fr/logos/logoLNUMERIQ.gif'
     }
 ];
 
