@@ -35,8 +35,8 @@ h1 {
 }
 
 .rss-feed-logo {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     margin-right: 10px;
     object-fit: contain;
 }
@@ -75,7 +75,7 @@ h1 {
 }
 
 .rss-feed-item-title {
-    font-size: 0.85em;
+    font-size: 0.8em;
     font-weight: bold;
     margin-bottom: 3px;
 }
