@@ -1,7 +1,7 @@
 /* Styles spécifiques pour la page des actualités IT */
 
 .main-content {
-    max-width: 250mm; /* Largeur d'une feuille A4 */
+    max-width: 210mm; /* Largeur d'une feuille A4 */
     width: 100%;
     margin: 0 auto;
     padding: 20px;
@@ -15,7 +15,7 @@ h1 {
 
 #rss-feeds-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes de largeur égale */
     gap: 20px;
 }
 
@@ -28,21 +28,21 @@ h1 {
 
 .rss-feed-header {
     background-color: #f0f8ff;
-    padding: 15px;
+    padding: 10px;
     display: flex;
     align-items: center;
     border-bottom: 2px solid #1e90ff;
 }
 
 .rss-feed-logo {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     margin-right: 10px;
     object-fit: contain;
 }
 
 .rss-feed-title {
-    font-size: 1.2em;
+    font-size: 1em;
     color: #1e90ff;
     margin: 0;
     flex-grow: 1;
@@ -55,12 +55,12 @@ h1 {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    max-height: 400px;
+    max-height: 300px;
     overflow-y: auto;
 }
 
 .rss-feed-item {
-    padding: 15px;
+    padding: 10px;
     border-bottom: 1px solid #f0f0f0;
 }
 
@@ -75,9 +75,9 @@ h1 {
 }
 
 .rss-feed-item-title {
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 
 .rss-feed-item-date {
