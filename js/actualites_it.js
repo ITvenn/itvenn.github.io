@@ -25,11 +25,6 @@ const RSS_FEEDS = [
         logo: 'http://www.phoenixjp.net/news/fr/logos/logoFRANDROID.gif'
     },
     {
-        name: 'Cowcotland',
-        url: 'https://www.cowcotland.com/rss/news.xml',
-        logo: 'http://www.phoenixjp.net/news/fr/logos/logoCOWCOT.gif'
-    },
-    {
         name: "Tom's Hardware",
         url: 'https://www.tomshardware.fr/feed/',
         logo: 'http://www.phoenixjp.net/news/fr/logos/logoPPC.gif'
