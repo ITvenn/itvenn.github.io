@@ -6,9 +6,8 @@
     <title>Vulnérabilités Cyber - ITvenn</title>
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="/styles/footer.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-rss/3.3.0/jquery.rss.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
     <div class="page-container">
@@ -39,11 +38,17 @@
             <h1>Vulnérabilités Cyber</h1>
             <p>Découvrez les dernières vulnérabilités cyber rapportées :</p>
             
-            <h2>Flux RSS des CVE</h2>
-            <div id="rss-feeds">
-                <div id="cve-feed"></div>
-                <div id="nist-feed"></div>
-            </div>
+            <section id="rss-feeds">
+                <h2>Flux RSS des CVE</h2>
+                <div id="cve-feed">
+                    <p>Chargement des CVE...</p>
+                </div>
+                
+                <h2>Flux RSS NIST</h2>
+                <div id="nist-feed">
+                    <p>Chargement des actualités NIST...</p>
+                </div>
+            </section>
         </main>
 
         <footer class="site-footer">
@@ -92,33 +97,7 @@
                 }
             });
         });
-
-        // Ajout des flux RSS
-        $(document).ready(function() {
-            const corsProxy = "https://cors-anywhere.herokuapp.com/";
-            
-            $("#cve-feed").rss(corsProxy + "https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss.xml", {
-                limit: 5,
-                effect: 'slideFastSynced',
-                layoutTemplate: "<ul>{entries}</ul>",
-                entryTemplate: '<li><strong>{title}</strong><br/>{bodyPlain}</li>',
-                error: function(error) {
-                    console.error("Erreur lors du chargement du flux CVE:", error);
-                    $("#cve-feed").html("<p>Impossible de charger le flux CVE. Veuillez réessayer plus tard.</p>");
-                }
-            });
-
-            $("#nist-feed").rss(corsProxy + "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml", {
-                limit: 5,
-                effect: 'slideFastSynced',
-                layoutTemplate: "<ul>{entries}</ul>",
-                entryTemplate: '<li><strong>{title}</strong><br/>{bodyPlain}</li>',
-                error: function(error) {
-                    console.error("Erreur lors du chargement du flux NIST:", error);
-                    $("#nist-feed").html("<p>Impossible de charger le flux NIST. Veuillez réessayer plus tard.</p>");
-                }
-            });
-        });
     </script>
+    <script src="/js/rss-feeds.js"></script>
 </body>
 </html>
