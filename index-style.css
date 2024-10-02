@@ -19,33 +19,27 @@ header {
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 10px 20px;
 }
 
-.nav-left {
+.nav-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
 .logo-container {
-    flex-grow: 1;
-    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .logo {
-    max-height: 60px;
+    max-height: 40px; /* Ajustez selon la taille de votre logo */
     width: auto;
-    transition: transform 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.05);
 }
 
 .menu-toggle {
+    display: none;
     background: none;
     border: none;
     cursor: pointer;
