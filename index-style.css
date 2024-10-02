@@ -399,3 +399,65 @@ footer a:hover {
         max-height: none;
     }
 }
+
+/* Styles pour le menu responsive */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #f8f8f8;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu li {
+        margin: 0;
+        text-align: center;
+    }
+
+    .menu li a {
+        display: block;
+        padding: 15px;
+    }
+
+    /* Animation du menu hamburger */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+}

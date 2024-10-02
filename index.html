@@ -12,6 +12,11 @@
             <div class="logo-container">
                 <a href="/index.html"><img src="/img/logo.png" alt="Logo ITvenn" class="logo"></a>
             </div>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="menu">
                 <li><a href="/index.html" class="active">Accueil</a></li>
                 <li><a href="/pages/projets_github.html">Projets GitHub</a></li>
@@ -106,6 +111,18 @@
         <a href="https://tryhackme.com/p/ITvenn" target="_blank">TryHackMe</a>
         <a href="https://github.com/ITvenn8520" target="_blank">GitHub</a>
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+
+        menuToggle.addEventListener('click', function() {
+            menu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+    });
+    </script>
 </body>
 </html>
 
