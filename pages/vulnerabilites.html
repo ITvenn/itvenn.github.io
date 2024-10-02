@@ -71,18 +71,28 @@
 
         // Ajout des flux RSS
         $(document).ready(function() {
-            $("#cve-feed").rss("https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss.xml", {
+            const corsProxy = "https://cors-anywhere.herokuapp.com/";
+            
+            $("#cve-feed").rss(corsProxy + "https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss.xml", {
                 limit: 5,
                 effect: 'slideFastSynced',
                 layoutTemplate: "<ul>{entries}</ul>",
-                entryTemplate: '<li><strong>{title}</strong><br/>{bodyPlain}</li>'
+                entryTemplate: '<li><strong>{title}</strong><br/>{bodyPlain}</li>',
+                error: function(error) {
+                    console.error("Erreur lors du chargement du flux CVE:", error);
+                    $("#cve-feed").html("<p>Impossible de charger le flux CVE. Veuillez réessayer plus tard.</p>");
+                }
             });
 
-            $("#nist-feed").rss("https://www.nist.gov/blogs/cybersecurity-insights/rss.xml", {
+            $("#nist-feed").rss(corsProxy + "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml", {
                 limit: 5,
                 effect: 'slideFastSynced',
                 layoutTemplate: "<ul>{entries}</ul>",
-                entryTemplate: '<li><strong>{title}</strong><br/>{bodyPlain}</li>'
+                entryTemplate: '<li><strong>{title}</strong><br/>{bodyPlain}</li>',
+                error: function(error) {
+                    console.error("Erreur lors du chargement du flux NIST:", error);
+                    $("#nist-feed").html("<p>Impossible de charger le flux NIST. Veuillez réessayer plus tard.</p>");
+                }
             });
         });
     </script>
