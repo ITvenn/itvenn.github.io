@@ -1,22 +1,25 @@
 function loadRSSFeed(feedUrl, containerId, errorMessage) {
-    const corsProxy = "https://cors-anywhere.herokuapp.com/";
+    const rss2jsonApiKey = 'YOUR_API_KEY'; // Remplacez par votre clé API RSS2JSON
+    const rss2jsonUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}&api_key=${rss2jsonApiKey}`;
+
     $.ajax({
-        url: corsProxy + feedUrl,
+        url: rss2jsonUrl,
         type: 'GET',
-        dataType: 'xml',
+        dataType: 'json',
         success: function(data) {
-            let html = '<ul>';
-            $(data).find('item').slice(0, 5).each(function() {
-                const title = $(this).find('title').text();
-                const link = $(this).find('link').text();
-                const description = $(this).find('description').text();
-                html += `<li>
-                    <h3><a href="${link}" target="_blank">${title}</a></h3>
-                    <p>${description}</p>
-                </li>`;
-            });
-            html += '</ul>';
-            $(containerId).html(html);
+            if (data.status === 'ok') {
+                let html = '<ul>';
+                data.items.slice(0, 5).forEach(function(item) {
+                    html += `<li>
+                        <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+                        <p>${item.description}</p>
+                    </li>`;
+                });
+                html += '</ul>';
+                $(containerId).html(html);
+            } else {
+                $(containerId).html(`<p>${errorMessage}</p>`);
+            }
         },
         error: function() {
             $(containerId).html(`<p>${errorMessage}</p>`);
@@ -32,7 +35,7 @@ $(document).ready(function() {
     );
 
     loadRSSFeed(
-        "https://www.nist.gov/news-events/cybersecurity/rss.xml",
+        "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml",
         "#nist-feed",
         "Impossible de charger le flux NIST. Veuillez réessayer plus tard."
     );
