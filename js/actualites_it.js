@@ -46,9 +46,6 @@ const RSS_FEEDS = [
     }
 ];
 
-const RSS2JSON_URL = 'https://api.rss2json.com/v1/api.json?rss_url=';
-const API_PARAMS = '&api_key=YOUR_API_KEY&count=20';
-
 function createRSSFeedElement(feed) {
     const feedElement = document.createElement('div');
     feedElement.className = 'rss-feed';
@@ -91,7 +88,7 @@ function updateRSSFeedElement(feedElement, items) {
 }
 
 async function fetchRSSFeed(feed) {
-    const response = await fetch(RSS2JSON_URL + encodeURIComponent(feed.url) + API_PARAMS);
+    const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`);
     const data = await response.json();
     return data.items;
 }
