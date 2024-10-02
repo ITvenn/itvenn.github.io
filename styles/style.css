@@ -32,12 +32,16 @@ header {
 
 nav {
     padding: 10px 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    max-width: 250mm; /* Largeur d'une feuille A4 */
 }
 
 .logo-container {
@@ -189,12 +193,7 @@ nav {
 }
 @media screen and (min-width: 769px) {
     .nav-container {
-        flex-grow: 1;
-        justify-content: flex-start;
-    }
-
-    .menu-toggle {
-        display: none;
+        justify-content: space-between;
     }
 
     .menu {
