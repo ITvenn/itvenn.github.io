@@ -2,7 +2,7 @@ const RSS_FEEDS = [
     {
         name: 'Le Monde Informatique',
         url: 'https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml',
-        logo: 'http://www.phoenixjp.net/news/fr/logos/logoLMINFO.gif'
+        logo: '/img/logo_site_actualites/logo_lemondeinformatique.gif'
     },
     {
         name: 'Korben.info',
@@ -17,32 +17,32 @@ const RSS_FEEDS = [
     {
         name: 'LeBigData.fr',
         url: 'https://www.lebigdata.fr/feed',
-        logo: 'http://www.phoenixjp.net/news/fr/logos/logoLEBIGDATA.gif'
+        logo: '/img/logo_site_actualites/logo_lebigdata.gif'
     },
     {
         name: 'FrAndroid',
         url: 'https://www.frandroid.com/feed',
-        logo: 'http://www.phoenixjp.net/news/fr/logos/logoFRANDROID.gif'
+        logo: '/img/logo_site_actualites/logo_frandroid.gif'
     },
     {
         name: "Tom's Hardware",
         url: 'https://www.tomshardware.fr/feed/',
-        logo: 'http://www.phoenixjp.net/news/fr/logos/logoPPC.gif'
+        logo: '/img/logo_site_actualites/logo_tomshardware.gif'
     },
     {
         name: 'Overclocking Made in France',
         url: 'https://www.overclocking.com/feed/',
-        logo: 'http://www.phoenixjp.net/news/fr/logos/logoOCMIF.gif'
+        logo: '/img/logo_site_actualites/logo_overclocking.gif'
     },
     {
         name: 'Generation-NT',
         url: 'https://www.generation-nt.com/export/rss.xml',
-        logo: 'http://www.phoenixjp.net/news/fr/logos/logoGENNT.gif'
+        logo: '/img/logo_site_actualites/logo_gnt.gif'
     },
     {
         name: 'Les Numériques',
         url: 'https://www.lesnumeriques.com/rss.xml',
-        logo: 'http://www.phoenixjp.net/news/fr/logos/logoLNUMERIQ.gif'
+        logo: '/img/logo_site_actualites/logo_lesnumeriques.gif'
     }
 ];
 
