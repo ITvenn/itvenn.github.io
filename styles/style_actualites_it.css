@@ -42,7 +42,7 @@ h1 {
 }
 
 .rss-feed-title {
-    font-size: 1em;
+    font-size: 1.2em;
     color: #1e90ff;
     margin: 0;
     flex-grow: 1;
@@ -75,13 +75,13 @@ h1 {
 }
 
 .rss-feed-item-title {
-    font-size: 0.7em;
+    font-size: 0.85em;
     font-weight: bold;
     margin-bottom: 3px;
 }
 
 .rss-feed-item-date {
-    font-size: 0.5em;
+    font-size: 0.65em;
     color: #666;
 }
 
