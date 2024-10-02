@@ -88,7 +88,7 @@ async function initRSSFeeds() {
         
         try {
             const items = await fetchRSSFeed(feed);
-            updateRSSFeedElement(feedElement, items.slice(0, 5));
+            updateRSSFeedElement(feedElement, items.slice(0, 15)); // Afficher 15 articles au lieu de 5
         } catch (error) {
             console.error(`Erreur lors de la récupération du flux RSS pour ${feed.name}:`, error);
             feedElement.querySelector('.rss-feed-list').innerHTML = '<li>Impossible de charger les actualités pour le moment.</li>';
