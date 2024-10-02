@@ -1,7 +1,7 @@
 /* Styles spécifiques pour la page des actualités IT */
 
 .main-content {
-    max-width: 210mm; /* Largeur d'une feuille A4 */
+    max-width: 250mm; /* Largeur d'une feuille A4 */
     width: 100%;
     margin: 0 auto;
     padding: 20px;
