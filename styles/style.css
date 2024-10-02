@@ -20,11 +20,6 @@ header {
 
 nav {
     padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .nav-container {
@@ -36,7 +31,6 @@ nav {
 .logo-container {
     display: flex;
     align-items: center;
-    flex-shrink: 0;
 }
 
 .logo {
@@ -76,7 +70,6 @@ nav {
 
 .menu li {
     margin-left: 20px;
-    position: relative;
 }
 
 .menu li a {
@@ -88,11 +81,11 @@ nav {
     padding: 0.5em 0;
 }
 
-.menu li a:hover {
+.menu a:hover {
     color: #1e90ff;
 }
 
-.menu li a::after {
+.menu a::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -105,7 +98,7 @@ nav {
     transition: all 0.3s ease-in-out;
 }
 
-.menu li a:hover::after {
+.menu a:hover::after {
     visibility: visible;
     transform: scaleX(1);
 }
@@ -125,6 +118,23 @@ nav {
     nav {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .menu {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1em;
+    }
+
+    .menu li {
+        margin-left: 0;
+        margin-bottom: 0.5em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
     }
 
     .menu {
@@ -163,6 +173,22 @@ nav {
 
     .menu-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -7px);
+    }
+}
+@media screen and (min-width: 769px) {
+    .nav-container {
+        flex-grow: 1;
+        justify-content: flex-start;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: flex-end;
+        flex-grow: 1;
     }
 }
 
