@@ -6,70 +6,62 @@
     <title>Actualités IT - ITvenn</title>
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="/styles/style_actualites_it.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-rss/3.3.0/jquery.rss.min.js"></script>
 </head>
 <body>
-    <div class="page-container">
-        <header>
-            <nav>
-                <div class="nav-container">
-                    <div class="logo-container">
-                        <a href="/index.html"><img src="/img/logo.png" alt="Logo ITvenn" class="logo"></a>
-                    </div>
-                    <button class="menu-toggle" aria-label="Toggle menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo-container">
+                    <a href="/index.html"><img src="/img/logo.png" alt="Logo ITvenn" class="logo"></a>
                 </div>
-                <ul class="menu">
-                    <li><a href="/index.html">Accueil</a></li>
-                    <li><a href="/pages/projets_github.html">Projets GitHub</a></li>
-                    <li><a href="/pages/actualites_it.html" class="active">Actualités IT</a></li>
-                    <li><a href="/pages/vulnerabilites.html">Vulnérabilités Cyber</a></li>
-                    <li><a href="/pages/ressources.html">Ressources</a></li>
-                    <li><a href="/pages/about.html">À propos</a></li>
-                </ul>
-            </nav>
-        </header>
-        
-        <main class="main-content">
-            <h1>Actualités IT</h1>
-            <div id="rss-feeds-container">
-                <!-- Les flux RSS seront chargés ici par JavaScript -->
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-        </main>
-
-        <footer>
-            <p>Retrouvez-moi sur :</p>
-            <a href="https://www.linkedin.com/in/vincent-hamel-9b9422229/" target="_blank">LinkedIn</a>
-            <a href="https://tryhackme.com/p/ITvenn" target="_blank">TryHackMe</a>
-            <a href="https://github.com/ITvenn8520" target="_blank">GitHub</a>
-        </footer>
-    </div>
+            <ul class="menu">
+                <li><a href="/index.html">Accueil</a></li>
+                <li><a href="/pages/projets_github.html">Projets GitHub</a></li>
+                <li><a href="/pages/actualites_it.html" class="active">Actualités IT</a></li>
+                <li><a href="/pages/vulnerabilites.html">Vulnérabilités Cyber</a></li>
+                <li><a href="/pages/ressources.html">Ressources</a></li>
+                <li><a href="/pages/about.html">À propos</a></li>
+            </ul>
+        </nav>
+    </header>
     
+    <main>
+        <h1>Actualités IT</h1>
+        <div id="rss-feeds-container"></div>
+    </main>
+
+    <footer>
+        <p>Retrouvez-moi sur :</p>
+        <a href="https://www.linkedin.com/in/vincent-hamel-9b9422229/" target="_blank">LinkedIn</a>
+        <a href="https://tryhackme.com/p/ITvenn" target="_blank">TryHackMe</a>
+        <a href="https://github.com/ITvenn8520" target="_blank">GitHub</a>
+    </footer>
+
+    <script src="/js/actualites_it.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const menu = document.querySelector('.menu');
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
     
-            menuToggle.addEventListener('click', function() {
-                menu.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-            });
-    
-            // Fermer le menu lorsqu'on clique en dehors
-            document.addEventListener('click', function(event) {
-                if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
-                    menu.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                }
-            });
+        menuToggle.addEventListener('click', function() {
+            menu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
         });
-
-        // Code pour charger les flux RSS (à ajouter ou modifier selon vos besoins)
-        // ...
+    
+        // Fermer le menu lorsqu'on clique en dehors
+        document.addEventListener('click', function(event) {
+            if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+                menu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+    });
     </script>
 </body>
 </html>
