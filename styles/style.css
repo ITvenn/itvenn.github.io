@@ -34,7 +34,7 @@ nav {
 }
 
 .logo {
-    max-height: 40px; /* Ajustez selon la taille de votre logo */
+    max-height: 60px; /* Ajustez selon la taille de votre logo */
     width: auto;
     transition: transform 0.3s ease;
 }
