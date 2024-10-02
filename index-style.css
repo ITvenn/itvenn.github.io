@@ -31,7 +31,8 @@ nav {
 }
 
 .logo-container {
-    margin-right: 20px;
+    flex-grow: 1;
+    text-align: center;
 }
 
 .logo {
@@ -45,11 +46,11 @@ nav {
 }
 
 .menu-toggle {
-    display: none;
     background: none;
     border: none;
     cursor: pointer;
     padding: 10px;
+    z-index: 1000;
 }
 
 .menu-toggle span {
@@ -70,6 +71,11 @@ nav {
 
 .menu li {
     margin-left: 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #333;
 }
 
 .menu a {
@@ -421,11 +427,11 @@ footer a:hover {
 
 /* Styles pour le menu responsive */
 .menu-toggle {
-    display: none;
     background: none;
     border: none;
     cursor: pointer;
     padding: 10px;
+    z-index: 1000;
 }
 
 .menu-toggle span {
@@ -437,6 +443,62 @@ footer a:hover {
     transition: all 0.3s ease;
 }
 
+.logo-container {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.search-container {
+    position: relative;
+    width: 40px;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
+
+.search-container.active {
+    width: 200px;
+}
+
+#search-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    display: none;
+}
+
+.search-container.active #search-input {
+    display: block;
+}
+
+#search-button {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #333;
+}
+
 @media screen and (max-width: 768px) {
     .menu-toggle {
         display: block;
@@ -446,7 +508,7 @@ footer a:hover {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 100%;
         left: 0;
         width: 100%;
         background-color: #f8f8f8;
@@ -478,5 +540,23 @@ footer a:hover {
 
     .menu-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -7px);
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .search-container.active {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        background-color: #f8f8f8;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 }
