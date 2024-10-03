@@ -5,25 +5,27 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch(anssiSecurityFeedURL)
         .then(response => response.json())
         .then(data => {
-            let output = '<select class="security-updates-select" size="30">'; // Changé à size="10"
+            let output = '<select class="security-updates-select">';
+            output += '<option value="" disabled selected>Sélectionnez une alerte</option>';
             data.items.forEach(item => {
                 const date = new Date(item.pubDate);
                 const formattedDate = date.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
                 
                 output += `
                     <option value="${item.link}">
-                        ${formattedDate} - ${truncateText(item.title, 100)}
+                        ${formattedDate} - ${truncateText(item.title, 80)}
                     </option>
                 `;
             });
             output += '</select>';
             securityUpdatesList.innerHTML = output;
 
-            // Ajouter un gestionnaire d'événements pour ouvrir le lien sélectionné
             const select = securityUpdatesList.querySelector('.security-updates-select');
             select.addEventListener('change', function() {
-                window.open(this.value, '_blank');
-                this.selectedIndex = -1; // Réinitialiser la sélection
+                if (this.value) {
+                    window.open(this.value, '_blank');
+                    this.selectedIndex = 0;
+                }
             });
         })
         .catch(error => {

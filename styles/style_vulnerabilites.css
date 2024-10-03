@@ -1,33 +1,28 @@
-/* Style pour la section des vulnérabilités */
 #vulnerabilities {
-    margin-top: 2em;
+    max-width: 800px;
+    margin: 2em auto;
     padding: 1em;
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Style pour le titre principal */
 #vulnerabilities h2 {
-    color: #dc3545; /* Rouge pour le titre ANSSI */
+    color: #dc3545;
     font-size: 1.5em;
     margin-bottom: 1em;
     text-align: center;
 }
 
-/* Style pour la liste déroulante */
 .security-updates-select {
     width: 100%;
-    height: auto;
-    max-height: 300px; /* Ajustez cette valeur selon vos besoins */
     padding: 10px;
     font-size: 1em;
     border: 1px solid #ced4da;
     border-radius: 4px;
-    background-color: #fff;
+    background-color: #f8f9fa;
     color: #495057;
-    overflow-y: auto;
-    appearance: none; /* Supprime l'apparence par défaut sur certains navigateurs */
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23343a40' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
@@ -36,18 +31,15 @@
     background-size: 12px;
 }
 
-/* Style pour les options de la liste déroulante */
 .security-updates-select option {
-    padding: 8px 10px;
-    border-bottom: 1px solid #e9ecef;
+    padding: 10px;
+    background-color: #ffffff;
 }
 
-/* Style au survol des options */
 .security-updates-select option:hover {
     background-color: #e9ecef;
 }
 
-/* Style pour le message d'erreur */
 .error-message {
     color: #dc3545;
     font-weight: bold;
@@ -55,7 +47,6 @@
     margin-top: 1em;
 }
 
-/* Responsive design pour les petits écrans */
 @media (max-width: 768px) {
     #vulnerabilities {
         padding: 0.5em;
