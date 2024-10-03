@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const securityUpdatesList = document.getElementById('security-updates-list');
-    const microsoftSecurityFeedURL = 'https://api.rss2json.com/v1/api.json?rss_url=https://msrc-blog.microsoft.com/feed/';
+    const microsoftSecurityFeedURL = 'https://api.msrc.microsoft.com/update-guide/rss';
 
     fetch(microsoftSecurityFeedURL)
         .then(response => response.json())
