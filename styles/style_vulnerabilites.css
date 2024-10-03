@@ -2,47 +2,32 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
+    font-size: 0.9em;
 }
 
 .security-update-item {
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.update-title {
-    font-size: 1.2em;
-    color: #343a40;
-    margin-bottom: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
 }
 
 .update-date {
-    font-size: 0.9em;
+    flex: 0 0 90px;
     color: #6c757d;
-    margin-bottom: 10px;
+    font-size: 0.9em;
 }
 
-.update-description {
-    font-size: 1em;
-    color: #495057;
-    margin-bottom: 15px;
-    line-height: 1.5;
-}
-
-.read-more-link {
-    display: inline-block;
-    color: #007bff;
+.update-title {
+    flex: 1;
+    color: #343a40;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    margin-left: 10px;
 }
 
-.read-more-link:hover {
-    color: #0056b3;
+.update-title:hover {
     text-decoration: underline;
+    color: #007bff;
 }
 
 .error-message {

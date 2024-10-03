@@ -6,16 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             let output = '<ul class="security-updates-list">';
-            data.items.forEach(item => {
+            data.items.slice(0, 20).forEach(item => {
                 const date = new Date(item.pubDate);
-                const formattedDate = date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+                const formattedDate = date.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
                 
                 output += `
                     <li class="security-update-item">
-                        <h3 class="update-title">${item.title}</h3>
-                        <p class="update-date">${formattedDate}</p>
-                        ${item.description ? `<p class="update-description">${truncateText(item.description, 150)}</p>` : ''}
-                        <a href="${item.link}" class="read-more-link" target="_blank">Lire plus</a>
+                        <span class="update-date">${formattedDate}</span>
+                        <a href="${item.link}" class="update-title" target="_blank">${truncateText(item.title, 80)}</a>
                     </li>
                 `;
             });
