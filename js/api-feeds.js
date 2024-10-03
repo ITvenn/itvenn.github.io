@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const securityUpdatesList = document.getElementById('security-updates-list');
-    const microsoftSecurityFeedURL = 'https://api.rss2json.com/v1/api.json?rss_url=https://www.cert.ssi.gouv.fr/alerte/feed/';
+    const anssiSecurityFeedURL = 'https://api.rss2json.com/v1/api.json?rss_url=https://www.cert.ssi.gouv.fr/alerte/feed/';
 
-    fetch(microsoftSecurityFeedURL)
+    fetch(anssiSecurityFeedURL)
         .then(response => response.json())
         .then(data => {
-            let output = '<select class="security-updates-select" size="40">';
-            data.items.slice(0, 40).forEach(item => {
+            let output = '<select class="security-updates-select" size="30">'; // Changé à size="10"
+            data.items.forEach(item => {
                 const date = new Date(item.pubDate);
                 const formattedDate = date.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
                 
@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         })
         .catch(error => {
-            console.error('Erreur lors du chargement des mises à jour de sécurité:', error);
-            securityUpdatesList.innerHTML = '<p class="error-message">Erreur lors du chargement des mises à jour de sécurité. Veuillez réessayer plus tard.</p>';
+            console.error('Erreur lors du chargement des alertes de sécurité:', error);
+            securityUpdatesList.innerHTML = '<p class="error-message">Erreur lors du chargement des alertes de sécurité. Veuillez réessayer plus tard.</p>';
         });
 });
 
