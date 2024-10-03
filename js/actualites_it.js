@@ -1,3 +1,4 @@
+// Version v1.0
 const RSS_FEEDS = [
     {
         name: 'Le Monde Informatique',

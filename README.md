@@ -1,4 +1,5 @@
 # Mon site de Projets GitHub et Veille Informatique
+<sub>Version V1.0</sub>
 
 ## Description
 
