@@ -58,6 +58,22 @@
     margin-top: 1em;
 }
 
+.security-update-item {
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.security-update-item h3 {
+    margin-bottom: 0.5em;
+}
+
+.security-update-item .pub-date {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 0.5em;
+}
+
 @media (max-width: 768px) {
     #vulnerabilities {
         padding: 0.5em;
