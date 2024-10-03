@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const securityUpdatesList = document.getElementById('security-updates-list');
-    const microsoftSecurityFeedURL = 'https://api.msrc.microsoft.com/update-guide/rss';
+    const microsoftSecurityFeedURL = 'https://api.rss2json.com/v1/api.json?rss_url=https://api.msrc.microsoft.com/update-guide/rss';
 
     fetch(microsoftSecurityFeedURL)
         .then(response => response.json())
@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li class="security-update-item">
                         <h3 class="update-title">${item.title}</h3>
                         <p class="update-date">${formattedDate}</p>
-                        <p class="update-description">${truncateText(item.description, 200)}</p>
-                        <a href="${item.link}" target="_blank" class="read-more-link">Lire plus</a>
+                        ${item.description ? `<p class="update-description">${truncateText(item.description, 150)}</p>` : ''}
+                        <a href="${item.link}" class="read-more-link" target="_blank">Lire plus</a>
                     </li>
                 `;
             });
