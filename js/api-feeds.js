@@ -5,20 +5,26 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch(microsoftSecurityFeedURL)
         .then(response => response.json())
         .then(data => {
-            let output = '<ul class="security-updates-list">';
-            data.items.slice(0, 20).forEach(item => {
+            let output = '<select class="security-updates-select" size="40">';
+            data.items.slice(0, 40).forEach(item => {
                 const date = new Date(item.pubDate);
                 const formattedDate = date.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
                 
                 output += `
-                    <li class="security-update-item">
-                        <span class="update-date">${formattedDate}</span>
-                        <a href="${item.link}" class="update-title" target="_blank">${truncateText(item.title, 80)}</a>
-                    </li>
+                    <option value="${item.link}">
+                        ${formattedDate} - ${truncateText(item.title, 100)}
+                    </option>
                 `;
             });
-            output += '</ul>';
+            output += '</select>';
             securityUpdatesList.innerHTML = output;
+
+            // Ajouter un gestionnaire d'événements pour ouvrir le lien sélectionné
+            const select = securityUpdatesList.querySelector('.security-updates-select');
+            select.addEventListener('change', function() {
+                window.open(this.value, '_blank');
+                this.selectedIndex = -1; // Réinitialiser la sélection
+            });
         })
         .catch(error => {
             console.error('Erreur lors du chargement des mises à jour de sécurité:', error);

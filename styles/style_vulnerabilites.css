@@ -35,3 +35,22 @@
     font-weight: bold;
     text-align: center;
 }
+
+.security-updates-select {
+    width: 100%;
+    font-size: 0.9em;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: #f8f9fa;
+}
+
+.security-updates-select option {
+    padding: 8px;
+    border-bottom: 1px solid #e9ecef;
+    cursor: pointer;
+}
+
+.security-updates-select option:hover {
+    background-color: #e9ecef;
+}
