@@ -5,21 +5,21 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch(microsoftSecurityFeedURL)
         .then(response => response.json())
         .then(data => {
-            let output = '<div class="security-updates-grid">';
-            data.items.slice(0, 6).forEach(item => {
+            let output = '<ul class="security-updates-list">';
+            data.items.forEach(item => {
                 const date = new Date(item.pubDate);
                 const formattedDate = date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
                 
                 output += `
-                    <div class="security-update-card">
+                    <li class="security-update-item">
                         <h3 class="update-title">${item.title}</h3>
                         <p class="update-date">${formattedDate}</p>
-                        <p class="update-description">${truncateText(item.description, 150)}</p>
-                        <a href="${item.link}" target="_blank" class="read-more-btn">Lire plus</a>
-                    </div>
+                        <p class="update-description">${truncateText(item.description, 200)}</p>
+                        <a href="${item.link}" target="_blank" class="read-more-link">Lire plus</a>
+                    </li>
                 `;
             });
-            output += '</div>';
+            output += '</ul>';
             securityUpdatesList.innerHTML = output;
         })
         .catch(error => {
