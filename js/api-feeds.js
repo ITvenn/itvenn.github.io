@@ -1,22 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
     const securityUpdatesList = document.getElementById('security-updates-list');
-    const anssiSecurityFeedURL = 'https://www.cert.ssi.gouv.fr/alerte/feed/';
+    const anssiSecurityFeedURL = 'https://api.rss2json.com/v1/api.json?rss_url=https://www.cert.ssi.gouv.fr/alerte/feed/&count=100';
 
-    fetchFeed(anssiSecurityFeedURL)
-        .then(feed => {
-            // Trier les éléments du plus récent au plus ancien
-            feed.items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+    fetch(anssiSecurityFeedURL)
+        .then(response => response.text())
+        .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+        .then(data => {
+            const items = Array.from(data.querySelectorAll("item"));
+            items.sort((a, b) => {
+                const dateA = new Date(a.querySelector("pubDate").textContent);
+                const dateB = new Date(b.querySelector("pubDate").textContent);
+                return dateB - dateA;
+            });
 
             let output = '<table class="security-updates-table">';
             output += '<thead><tr><th>Date</th><th>Alerte</th></tr></thead><tbody>';
-            feed.items.forEach(item => {
-                const date = new Date(item.pubDate);
-                const formattedDate = date.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+            items.forEach(item => {
+                const title = item.querySelector("title").textContent;
+                const link = item.querySelector("link").textContent;
+                const pubDate = new Date(item.querySelector("pubDate").textContent);
+                const formattedDate = pubDate.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
                 
                 output += `
                     <tr>
                         <td>${formattedDate}</td>
-                        <td><a href="${item.link}" target="_blank">${truncateText(item.title, 100)}</a></td>
+                        <td><a href="${link}" target="_blank">${truncateText(title, 100)}</a></td>
                     </tr>
                 `;
             });
