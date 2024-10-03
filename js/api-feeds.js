@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch(anssiSecurityFeedURL)
         .then(response => response.json())
         .then(data => {
+            // Trier les éléments du plus récent au plus ancien
+            data.items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+
             let output = '<table class="security-updates-table">';
             output += '<thead><tr><th>Date</th><th>Alerte</th></tr></thead><tbody>';
             data.items.forEach(item => {
