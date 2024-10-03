@@ -1,37 +1,24 @@
-// Version v1.0
-function formatDate(dateString) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('fr-FR', options);
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const securityUpdatesList = document.getElementById('security-updates-list');
+    const microsoftSecurityFeedURL = 'https://api.rss2json.com/v1/api.json?rss_url=https://msrc-blog.microsoft.com/feed/';
 
-function loadVulnerabilities() {
-    const apiUrl = 'https://services.nvd.nist.gov/rest/json/cves/1.0?resultsPerPage=5';
-
-    $.ajax({
-        url: apiUrl,
-        type: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            let html = '<ul>';
-            data.result.CVE_Items.forEach(function(item) {
-                const cve = item.cve;
-                const description = cve.description.description_data[0].value;
-                const publishedDate = formatDate(item.publishedDate);
-                html += `<li>
-                    <h3><a href="https://nvd.nist.gov/vuln/detail/${cve.CVE_data_meta.ID}" target="_blank">${cve.CVE_data_meta.ID}</a></h3>
-                    <p><strong>Date de publication :</strong> ${publishedDate}</p>
-                    <p>${description}</p>
-                </li>`;
+    fetch(microsoftSecurityFeedURL)
+        .then(response => response.json())
+        .then(data => {
+            let output = '';
+            data.items.forEach(item => {
+                output += `
+                    <div class="security-update">
+                        <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+                        <p>${item.pubDate}</p>
+                        <p>${item.description}</p>
+                    </div>
+                `;
             });
-            html += '</ul>';
-            $('#cve-list').html(html);
-        },
-        error: function() {
-            $('#cve-list').html('<p>Impossible de charger les vulnérabilités. Veuillez réessayer plus tard.</p>');
-        }
-    });
-}
-
-$(document).ready(function() {
-    loadVulnerabilities();
+            securityUpdatesList.innerHTML = output;
+        })
+        .catch(error => {
+            console.error('Erreur lors du chargement des mises à jour de sécurité:', error);
+            securityUpdatesList.innerHTML = '<p>Erreur lors du chargement des mises à jour de sécurité. Veuillez réessayer plus tard.</p>';
+        });
 });
