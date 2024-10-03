@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const securityUpdatesList = document.getElementById('security-updates-list');
-    const anssiSecurityFeedURL = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.cert.ssi.gouv.fr%2Falerte%2Ffeed%2F&api_key=h61rxauzqk5odbmiwtir1rq9dvlqdf5yzfxltyxm&count=100';
+    const anssiSecurityFeedURL = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.cert.ssi.gouv.fr%2Falerte%2Ffeed%2F&api_key=h61rxauzqk5odbmiwtir1rq9dvlqdf5yzfxltyxm&order_dir=asc&count=100';
 
     fetch(anssiSecurityFeedURL)
         .then(response => response.json())
