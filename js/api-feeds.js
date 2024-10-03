@@ -5,27 +5,30 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch(anssiSecurityFeedURL)
         .then(response => response.json())
         .then(data => {
-            let output = '<select class="security-updates-select">';
-            output += '<option value="" disabled selected>Sélectionnez une alerte</option>';
+            let output = '<table class="security-updates-table">';
+            output += '<thead><tr><th>Date</th><th>Alerte</th></tr></thead><tbody>';
             data.items.forEach(item => {
                 const date = new Date(item.pubDate);
                 const formattedDate = date.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
                 
                 output += `
-                    <option value="${item.link}">
-                        ${formattedDate} - ${truncateText(item.title, 80)}
-                    </option>
+                    <tr>
+                        <td>${formattedDate}</td>
+                        <td><a href="${item.link}" target="_blank">${truncateText(item.title, 100)}</a></td>
+                    </tr>
                 `;
             });
-            output += '</select>';
+            output += '</tbody></table>';
             securityUpdatesList.innerHTML = output;
 
-            const select = securityUpdatesList.querySelector('.security-updates-select');
-            select.addEventListener('change', function() {
-                if (this.value) {
-                    window.open(this.value, '_blank');
-                    this.selectedIndex = 0;
-                }
+            const rows = securityUpdatesList.querySelectorAll('tr');
+            rows.forEach(row => {
+                row.addEventListener('click', function() {
+                    const link = this.querySelector('a');
+                    if (link) {
+                        window.open(link.href, '_blank');
+                    }
+                });
             });
         })
         .catch(error => {
