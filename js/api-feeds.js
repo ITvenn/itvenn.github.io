@@ -1,44 +1,43 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const rssUrl = 'https://www.cert.ssi.gouv.fr/alerte/feed/';
-    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&api_key=YOUR_API_KEY&callback=processRSS`;
-
     const securityUpdatesList = document.getElementById('security-updates-list');
-    securityUpdatesList.innerHTML = '<p>Chargement des alertes de sécurité...</p>';
+    const anssiSecurityFeedURL = 'https://api.rss2json.com/v1/api.json?rss_url=https://www.cert.ssi.gouv.fr/alerte/feed/';
 
-    // Créer et ajouter le script JSONP
-    const script = document.createElement('script');
-    script.src = apiUrl;
-    document.body.appendChild(script);
+    fetch(anssiSecurityFeedURL)
+        .then(response => response.json())
+        .then(data => {
+            let output = '<table class="security-updates-table">';
+            output += '<thead><tr><th>Date</th><th>Alerte</th></tr></thead><tbody>';
+            data.items.forEach(item => {
+                const date = new Date(item.pubDate);
+                const formattedDate = date.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+                
+                output += `
+                    <tr>
+                        <td>${formattedDate}</td>
+                        <td><a href="${item.link}" target="_blank">${truncateText(item.title, 100)}</a></td>
+                    </tr>
+                `;
+            });
+            output += '</tbody></table>';
+            securityUpdatesList.innerHTML = output;
+
+            const rows = securityUpdatesList.querySelectorAll('tr');
+            rows.forEach(row => {
+                row.addEventListener('click', function() {
+                    const link = this.querySelector('a');
+                    if (link) {
+                        window.open(link.href, '_blank');
+                    }
+                });
+            });
+        })
+        .catch(error => {
+            console.error('Erreur lors du chargement des alertes de sécurité:', error);
+            securityUpdatesList.innerHTML = '<p class="error-message">Erreur lors du chargement des alertes de sécurité. Veuillez réessayer plus tard.</p>';
+        });
 });
 
-function processRSS(data) {
-    const securityUpdatesList = document.getElementById('security-updates-list');
-    
-    if (data.status !== 'ok') {
-        securityUpdatesList.innerHTML = '<p class="error-message">Une erreur est survenue lors du chargement des alertes de sécurité. Veuillez réessayer plus tard.</p>';
-        return;
-    }
-
-    const feedItems = data.items.map(item => ({
-        title: item.title,
-        link: item.link,
-        description: item.description,
-        pubDate: new Date(item.pubDate)
-    }));
-
-    // Trier les éléments par date de publication (du plus récent au plus ancien)
-    feedItems.sort((a, b) => b.pubDate - a.pubDate);
-
-    securityUpdatesList.innerHTML = '';
-
-    feedItems.forEach(item => {
-        const itemElement = document.createElement('div');
-        itemElement.classList.add('security-update-item');
-        itemElement.innerHTML = `
-            <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
-            <p class="pub-date">Date de publication : ${item.pubDate.toLocaleDateString('fr-FR')}</p>
-            <p>${item.description}</p>
-        `;
-        securityUpdatesList.appendChild(itemElement);
-    });
+function truncateText(text, maxLength) {
+    if (text.length <= maxLength) return text;
+    return text.substr(0, maxLength) + '...';
 }
