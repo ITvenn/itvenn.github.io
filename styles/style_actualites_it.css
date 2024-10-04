@@ -135,4 +135,5 @@ h1 {
     width: 100%;
     height: auto;
     object-fit: cover;
+    object-position: center; /* Centrer l'image */
 }
