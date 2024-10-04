@@ -1,0 +1,145 @@
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.profile-summary {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.profile-summary:hover {
+    transform: translateY(-5px);
+}
+
+.profile-image {
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #1e90ff;
+    transition: transform 0.3s ease;
+}
+
+.profile-picture:hover {
+    transform: scale(1.05);
+}
+
+.profile-info {
+    flex-grow: 1;
+}
+
+h1, h2, h3, h4 {
+    color: #1e90ff;
+    margin-bottom: 15px;
+}
+
+.headline {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.location {
+    color: #888;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.experience-item, .education-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.experience-item:last-child, .education-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.company, .school {
+    font-weight: bold;
+    color: #333;
+}
+
+.date {
+    color: #888;
+    font-style: italic;
+}
+
+.skills-list, .certifications-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-list li, .certifications-list li {
+    background-color: #e9ecef;
+    color: #333;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.skills-list li:hover, .certifications-list li:hover {
+    background-color: #1e90ff;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+a {
+    color: #1e90ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+i {
+    margin-right: 8px;
+    color: #1e90ff;
+}
+
+@media (max-width: 768px) {
+    .profile-summary {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
