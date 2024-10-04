@@ -350,5 +350,76 @@ main {
     text-decoration: underline;
 }
 
+.hero-image, .about-image, .featured-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1em;
+}
 
+.hero-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
 
+.about-image {
+    float: right;
+    width: 40%;
+    margin-left: 1em;
+}
+
+.featured-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    .main-content {
+        margin-right: 0;
+        margin-bottom: 2em;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .about-image {
+        float: none;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-image {
+        max-height: 200px;
+    }
+
+    .featured-image {
+        height: 150px;
+    }
+}
+
+/* Animation du menu hamburger */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
