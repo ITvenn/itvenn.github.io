@@ -347,7 +347,7 @@ h2 {
 }
 
 .banner {
-    width: 100%;
+    width: 98%;
     height: 346px; /* Hauteur fixe au lieu de max-height */
     overflow: hidden;
     margin-bottom: 20px;
