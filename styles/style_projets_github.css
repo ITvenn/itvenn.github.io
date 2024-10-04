@@ -348,7 +348,7 @@ h2 {
 
 .banner {
     width: 100%;
-    height: auto; /* Hauteur fixe au lieu de max-height */
+    height: 100%; /* Hauteur fixe au lieu de max-height */
     overflow: hidden;
     margin-bottom: 20px;
 }
