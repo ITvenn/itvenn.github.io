@@ -1,3 +1,4 @@
+// Version v2.0
 document.addEventListener('DOMContentLoaded', function() {
     const securityUpdatesList = document.getElementById('security-updates-list');
     const anssiSecurityFeedURL = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.cert.ssi.gouv.fr%2Falerte%2Ffeed%2F&api_key=h61rxauzqk5odbmiwtir1rq9dvlqdf5yzfxltyxm&order_dir=asc&count=100';

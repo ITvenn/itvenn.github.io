@@ -1,4 +1,4 @@
-// Version v1.0
+// Version v2.0
 const RSS_FEEDS = [
     {
         name: 'IT-Connect',
