@@ -1,7 +1,7 @@
 // Version v1.0
 const RSS_FEEDS = [
     {
-        name: 'Generation-NT',
+        name: 'IT-Connect',
         url: 'https://www.it-connect.fr/feed/',
         logo: '/img/logo_site_actualites/logo_itconnect.png'
     },
