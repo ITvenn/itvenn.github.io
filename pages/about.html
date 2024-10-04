@@ -4,87 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos - ITvenn</title>
+    <title>À propos - Vincent Hamel</title>
     <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/style_about.css">
     <link rel="stylesheet" href="/styles/footer.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
     <div class="page-container">
         <header>
-            <nav>
-                <div class="nav-container">
-                    <div class="logo-container">
-                        <a href="/index.html"><img src="/img/logo.png" alt="Logo ITvenn" class="logo"></a>
-                    </div>
-                    <button class="menu-toggle" aria-label="Toggle menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-                <ul class="menu">
-                    <li><a href="/index.html">Accueil</a></li>
-                    <li><a href="/pages/projets_github.html">Projets GitHub</a></li>
-                    <li><a href="/pages/actualites_it.html">Actualités IT</a></li>
-                    <li><a href="/pages/vulnerabilites.html">Vulnérabilités</a></li>
-                    <li><a href="/pages/ressources.html">Ressources</a></li>
-                    <li><a href="/pages/about.html" class="active">À propos</a></li>
-                </ul>
-            </nav>
+            <!-- Insérez ici votre en-tête habituel -->
         </header>
-        
-        <main>
-            <h1>À propos</h1>
-            <p>Informations sur ITvenn à venir...</p>
+
+        <main class="about-content">
+            <h1>À propos de Vincent Hamel</h1>
+            
+            <section class="profile-summary">
+                <h2>Vincent Hamel</h2>
+                <p class="headline">Apprenti Administrateur Infrastructure chez Normandie Cabourg Pays d'Auge</p>
+                <p class="location">Danestal, Normandie, France</p>
+            </section>
+
+            <section class="contact-section">
+                <h3>Coordonnées</h3>
+                <p>Email: <a href="mailto:hamelvincentpro@gmail.com">hamelvincentpro@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/vincent-hamel-9b9422229" target="_blank">www.linkedin.com/in/vincent-hamel-9b9422229</a></p>
+            </section>
+
+            <section class="experience-section">
+                <h3>Expérience Professionnelle</h3>
+                <div class="experience-item">
+                    <h4>Apprenti Administrateur Infrastructure</h4>
+                    <p class="company">Normandie Cabourg Pays d'Auge - communauté de communes</p>
+                    <p class="date">septembre 2022 - Présent (2 ans 2 mois)</p>
+                    <p class="location">Dives-sur-Mer, Normandie, France</p>
+                </div>
+            </section>
+
+            <section class="education-section">
+                <h3>Formation</h3>
+                <div class="education-item">
+                    <h4>Mastère professionnel Manager en Infrastructures et Cybersécurité des SI</h4>
+                    <p class="school">CESI</p>
+                    <p class="date">2023 - 2025</p>
+                </div>
+                <div class="education-item">
+                    <h4>Licence professionnelle, Métiers des Réseaux Informatiques et Télécommunications, Administration et Sécurité des Réseaux</h4>
+                    <p class="school">Université de Rouen Normandie</p>
+                    <p class="date">2022 - 2023</p>
+                </div>
+                <div class="education-item">
+                    <h4>Diplôme universitaire de technologie (DUT), réseaux et télécommunication</h4>
+                    <p class="school">Université de Caen Normandie</p>
+                    <p class="date">2020 - 2022</p>
+                </div>
+            </section>
         </main>
 
         <footer class="site-footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h3>Retrouvez-moi sur :</h3>
-                        <div class="social-icons">
-                            <a href="https://www.linkedin.com/in/vincent-hamel-9b9422229/" target="_blank" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin"></i>
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="https://tryhackme.com/p/ITvenn" target="_blank" aria-label="TryHackMe">
-                                <i class="fas fa-flag"></i>
-                                <span>TryHackMe</span>
-                            </a>
-                            <a href="https://github.com/ITvenn8520" target="_blank" aria-label="GitHub">
-                                <i class="fab fa-github"></i>
-                                <span>GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2024 ITvenn. Tous droits réservés.</p>
-                </div>
-            </div>
+            <!-- Insérez ici votre pied de page habituel -->
         </footer>
     </div>
-    
+
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const menu = document.querySelector('.menu');
-    
-        menuToggle.addEventListener('click', function() {
-            menu.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-    
-        // Fermer le menu lorsqu'on clique en dehors
-        document.addEventListener('click', function(event) {
-            if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
-                menu.classList.remove('active');
-                menuToggle.classList.remove('active');
-            }
-        });
-    });
+        // Insérez ici votre script JavaScript habituel pour le menu, etc.
     </script>
 </body>
 </html>
