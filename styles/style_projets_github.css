@@ -358,4 +358,6 @@ h2 {
     height: 100%; /* Utiliser 100% de la hauteur du conteneur */
     object-fit: cover;
     object-position: center; /* Centrer l'image */
+    flex: 1;
+    padding: 1.5em;
 }
