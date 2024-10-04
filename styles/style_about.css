@@ -143,3 +143,62 @@ i {
         margin-bottom: 20px;
     }
 }
+
+.education-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.education-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.school-logo {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.school-logo-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.education-details {
+    flex-grow: 1;
+}
+
+.education-details h4 {
+    margin-bottom: 5px;
+}
+
+.school {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.date {
+    color: #888;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .education-item {
+        flex-direction: column;
+    }
+
+    .school-logo {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+}
