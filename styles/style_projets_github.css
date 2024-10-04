@@ -347,14 +347,14 @@ h2 {
 }
 
 .banner {
-    width: 100%;
+    width: 250px;
     height: 100%; /* Hauteur fixe au lieu de max-height */
     overflow: hidden;
     margin-bottom: 20px;
 }
 
 .banner-image {
-    width: 100%;
+    width: 250px;
     height: 100%; /* Utiliser 100% de la hauteur du conteneur */
     object-fit: cover;
     object-position: center; /* Centrer l'image */
