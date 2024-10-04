@@ -1,6 +1,11 @@
 // Version v1.0
 const RSS_FEEDS = [
     {
+        name: 'Generation-NT',
+        url: 'https://www.it-connect.fr/feed/',
+        logo: '/img/logo_site_actualites/logo_itconnect.png'
+    },
+    {
         name: 'Le Monde Informatique',
         url: 'https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml',
         logo: '/img/logo_site_actualites/logo_lemondeinformatique.gif'
