@@ -89,7 +89,7 @@ function updateRSSFeedElement(feedElement, items) {
 }
 
 async function fetchRSSFeed(feed) {
-    const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`);
+    const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}&api_key=h61rxauzqk5odbmiwtir1rq9dvlqdf5yzfxltyxm`);
     const data = await response.json();
     return data.items;
 }
