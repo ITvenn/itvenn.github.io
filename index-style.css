@@ -77,7 +77,6 @@ nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    align-items: center; /* Aligne les éléments du menu verticalement */
 }
 
 .menu li {
@@ -91,7 +90,6 @@ nav {
     font-size: 1.1em;
     transition: color 0.3s ease;
     padding: 0.5em 0;
-    position: relative; /* Pour le soulignement au survol */
 }
 
 .menu a:hover {
