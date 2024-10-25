@@ -37,61 +37,6 @@
         </header>
         
         <main class="about-content">
-            <div class="container">
-                <h1>Installation de Proxmox VE 8</h1>
-                <p>Ce tutoriel vous guide dans l'installation de Proxmox VE 8, une plateforme de virtualisation open-source pour les environnements de serveurs.</p>
-            
-                <div class="step">
-                    <h2>Prérequis</h2>
-                    <ul>
-                        <li>Un serveur dédié ou une machine virtuelle avec au moins 2 Go de RAM et un processeur 64-bit</li>
-                        <li>Une connexion Internet pour télécharger Proxmox VE</li>
-                        <li>Un périphérique USB pour créer le support d'installation</li>
-                    </ul>
-                </div>
-            
-                <div class="step">
-                    <h2>Étape 1 : Télécharger Proxmox VE 8</h2>
-                    <p>Rendez-vous sur le site officiel de Proxmox pour télécharger l'image ISO de Proxmox VE 8 :</p>
-                    <a href="https://www.proxmox.com/en/downloads">Télécharger Proxmox VE 8</a>
-                </div>
-            
-                <div class="step">
-                    <h2>Étape 2 : Créer un support d'installation</h2>
-                    <p>Utilisez un outil comme Rufus (Windows) ou Etcher (Linux/Mac) pour créer une clé USB bootable avec l'image ISO de Proxmox.</p>
-                    <h3>Exemple avec Rufus :</h3>
-                    <ul>
-                        <li>Ouvrez Rufus, sélectionnez votre périphérique USB.</li>
-                        <li>Choisissez l'image ISO téléchargée.</li>
-                        <li>Cliquez sur "Démarrer" pour créer le support.</li>
-                    </ul>
-                </div>
-            
-                <div class="step">
-                    <h2>Étape 3 : Démarrer l'installation de Proxmox</h2>
-                    <p>Insérez le support d'installation dans votre serveur et démarrez la machine en sélectionnant la clé USB comme périphérique de démarrage. Vous verrez l'écran d'installation de Proxmox :</p>
-                    <ol>
-                        <li>Sélectionnez "Install Proxmox VE" et appuyez sur <strong>Entrée</strong>.</li>
-                        <li>Acceptez les conditions de licence et suivez les instructions à l'écran pour configurer le disque et les paramètres réseau.</li>
-                        <li>Définissez un mot de passe pour l'administrateur et entrez une adresse e-mail pour les notifications.</li>
-                    </ol>
-                </div>
-            
-                <div class="step">
-                    <h2>Étape 4 : Configurer l'interface réseau</h2>
-                    <p>Durant l'installation, vous serez invité à configurer une interface réseau pour Proxmox. Choisissez une adresse IP statique pour assurer un accès stable à votre serveur.</p>
-                </div>
-            
-                <div class="step">
-                    <h2>Étape 5 : Finaliser l'installation</h2>
-                    <p>Une fois l'installation terminée, retirez le support USB et redémarrez le serveur. Vous pourrez accéder à l'interface web de Proxmox en utilisant l'adresse suivante dans un navigateur :</p>
-                    <pre>https://[adresse IP de votre serveur]:8006</pre>
-                </div>
-            
-                <div class="step">
-                    <h2>Étape 6 : Connexion à l'interface Proxmox</h2>
-                    <p>Accédez à l'interface Proxmox en utilisant les informations d'identification définies lors de l'installation. À partir de là, vous pouvez commencer à configurer vos machines virtuelles et conteneurs.</p>
-                </div>
         </main>
 
         <footer class="site-footer">
