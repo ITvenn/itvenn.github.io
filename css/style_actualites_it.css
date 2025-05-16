@@ -7,11 +7,6 @@
     box-sizing: border-box;
 }
 
-h1 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
 #rss-feeds-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Deux colonnes de largeur égale */
