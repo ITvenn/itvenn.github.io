@@ -25,13 +25,13 @@
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
     (function () {
-      emailjs.init("VOTRE_USER_ID"); // Remplacez par votre ID utilisateur EmailJS
+      emailjs.init("xkV_j7aevb_AkEj5p"); // Remplacez par votre ID utilisateur EmailJS
     })();
 
     document.getElementById("contact-form").addEventListener("submit", function (e) {
       e.preventDefault();
 
-      emailjs.sendForm("VOTRE_SERVICE_ID", "VOTRE_TEMPLATE_ID", this)
+      emailjs.sendForm("service_3hfkd24", "template_n4teg6d", this)
         .then(function () {
           alert("Message envoyé !");
         }, function (error) {
