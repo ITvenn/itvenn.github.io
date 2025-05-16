@@ -7,13 +7,13 @@
 <body>
   <form id="contact-form">
     <label for="name">Nom :</label>
-    <input type="text" name="name" id="name" required><br>
+    <input type="text" name="nom" id="name" required><br>
 
     <label for="email">Email :</label>
     <input type="email" name="email" id="email" required><br>
 
     <label for="phone">Téléphone :</label>
-    <input type="text" name="phone" id="phone" required><br>
+    <input type="text" name="téléphone" id="phone" required><br>
 
     <label for="message">Message :</label>
     <textarea name="message" id="message" required></textarea><br>
