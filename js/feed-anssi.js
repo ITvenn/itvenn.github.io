@@ -11,11 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
             data.items.forEach(item => {
                 const date = new Date(item.pubDate);
                 const formattedDate = date.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
-                
+
                 output += `
                     <tr>
                         <td>${formattedDate}</td>
                         <td><a href="${item.link}" target="_blank">${truncateText(item.title, 100)}</a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr style="border:1px dashed #ccc;"></td>
                     </tr>
                 `;
             });
