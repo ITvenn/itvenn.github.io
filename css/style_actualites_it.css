@@ -1,0 +1,137 @@
+/* Version V2.0 */
+.main-content {
+    max-width: 270mm; /* Largeur d'une feuille A4 */
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#rss-feeds-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes de largeur égale */
+    gap: 20px;
+}
+
+.rss-feed {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.rss-feed-header {
+    background-color: #f0f8ff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #1e90ff;
+}
+
+.rss-feed-logo {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
+.rss-feed-title {
+    font-size: 1.2em;
+    color: #1e90ff;
+    margin: 0;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rss-feed-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.rss-feed-item {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.rss-feed-item:last-child {
+    border-bottom: none;
+}
+
+.rss-feed-item a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.rss-feed-item-title {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.rss-feed-item-date {
+    font-size: 0.65em;
+    color: #666;
+}
+
+/* Styles pour la barre de défilement personnalisée */
+.rss-feed-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.rss-feed-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.rss-feed-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.rss-feed-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Styles responsives */
+@media screen and (max-width: 270mm) {
+    .main-content {
+        padding: 10px;
+    }
+
+    #rss-feeds-container {
+        grid-template-columns: 1fr;
+    }
+
+    .rss-feed-list {
+        max-height: 300px;
+    }
+}
+
+@media screen and (min-width: 211mm) and (max-width: 420mm) {
+    #rss-feeds-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.banner {
+    width: 100%;
+    max-height: 300px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
