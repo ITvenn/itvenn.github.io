@@ -2,54 +2,70 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Blog avec Carrousel et Recherche</title>
+  <title>Blog - Tutos & Articles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="clean-blog.css">
   <style>
     .carousel-item {
       height: 400px;
-      background-color: #ddd;
-      color: black;
-      text-align: center;
+      background-size: cover;
+      background-position: center;
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 2em;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px black;
     }
 
     .search-bar {
-      margin: 30px auto;
+      margin: 40px auto;
       max-width: 600px;
     }
 
     .blog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 40px;
     }
 
     .blog-post {
-      border: 1px solid #ccc;
-      padding: 20px;
-      background-color: white;
-      border-radius: 5px;
-      transition: box-shadow 0.3s;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .blog-post:hover {
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .blog-post h3 {
+      margin-top: 0;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .blog-post p {
+      margin: 10px 0 0;
+      color: #666;
     }
   </style>
 </head>
 <body>
 
-  <!-- Carrousel -->
+<!-- Carrousel des tutoriels récents -->
+<header class="intro-header">
   <div id="carouselTutos" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">Tutoriel 1 - Publié récemment</div>
-      <div class="carousel-item">Tutoriel 2 - Nouveau</div>
-      <div class="carousel-item">Tutoriel 3 - À découvrir</div>
+      <div class="carousel-item active" style="background-image: url('img/tuto1.jpg');">Tutoriel 1: Introduction</div>
+      <div class="carousel-item" style="background-image: url('img/tuto2.jpg');">Tutoriel 2: Avancé</div>
+      <div class="carousel-item" style="background-image: url('img/tuto3.jpg');">Tutoriel 3: Expert</div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselTutos" data-bs-slide="prev">
       <span class="carousel-control-prev-icon"></span>
@@ -58,34 +74,44 @@
       <span class="carousel-control-next-icon"></span>
     </button>
   </div>
+</header>
 
-  <!-- Barre de recherche -->
-  <div class="search-bar text-center">
-    <input type="text" id="searchInput" class="form-control" placeholder="Rechercher un article...">
+<!-- Barre de recherche -->
+<div class="search-bar text-center">
+  <input type="text" id="searchInput" class="form-control input-lg" placeholder="Rechercher un article...">
+</div>
+
+<!-- Grille des blogs -->
+<section class="blog-grid" id="blogGrid">
+  <div class="blog-post">
+    <h3>Blog 1: Déploiement réseau</h3>
+    <p>Introduction au VLAN et segmentation réseau.</p>
   </div>
-
-  <!-- Grille de blogs -->
-  <div class="blog-grid" id="blogGrid">
-    <div class="blog-post">Blog 1 - Sujet A</div>
-    <div class="blog-post">Blog 2 - Sujet B</div>
-    <div class="blog-post">Blog 3 - Sujet C</div>
-    <div class="blog-post">Blog 4 - Sujet D</div>
-    <div class="blog-post">Blog 5 - Sujet E</div>
-    <div class="blog-post">Blog 6 - Sujet F</div>
+  <div class="blog-post">
+    <h3>Blog 2: Sécurité Linux</h3>
+    <p>Configurer un pare-feu avec UFW efficacement.</p>
   </div>
+  <div class="blog-post">
+    <h3>Blog 3: Supervision</h3>
+    <p>Installation de Zabbix pour la surveillance.</p>
+  </div>
+  <div class="blog-post">
+    <h3>Blog 4: Sauvegardes</h3>
+    <p>Automatiser les backups avec Rsync et Cron.</p>
+  </div>
+</section>
 
-  <!-- JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Filtrage des blogs via la barre de recherche
-    document.getElementById('searchInput').addEventListener('input', function () {
-      const filter = this.value.toLowerCase();
-      const posts = document.querySelectorAll('.blog-post');
-      posts.forEach(post => {
-        const text = post.textContent.toLowerCase();
-        post.style.display = text.includes(filter) ? 'block' : 'none';
-      });
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Recherche dynamique
+  document.getElementById('searchInput').addEventListener('input', function () {
+    const val = this.value.toLowerCase();
+    document.querySelectorAll('.blog-post').forEach(el => {
+      el.style.display = el.textContent.toLowerCase().includes(val) ? 'block' : 'none';
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
