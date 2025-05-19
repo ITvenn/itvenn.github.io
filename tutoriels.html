@@ -1,117 +1,233 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Blog - Tutos & Articles</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="stylesheet" href="clean-blog.css">
-  <style>
-    .carousel-item {
-      height: 400px;
-      background-size: cover;
-      background-position: center;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2em;
-      font-weight: bold;
-      text-shadow: 1px 1px 3px black;
-    }
 
-    .search-bar {
-      margin: 40px auto;
-      max-width: 600px;
-    }
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px;
-      padding: 40px;
-    }
+    <title>HAMELV.FR - Tutoriels</title>
 
-    .blog-post {
-      background: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    .blog-post:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
+    <!-- Custom CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
 
-    .blog-post h3 {
-      margin-top: 0;
-      font-size: 22px;
-      font-weight: bold;
-    }
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    .blog-post p {
-      margin: 10px 0 0;
-      color: #666;
-    }
-  </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
+
 <body>
 
-<!-- Carrousel des tutoriels récents -->
-<header class="intro-header">
-  <div id="carouselTutos" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active" style="background-image: url('img/tuto1.jpg');">Tutoriel 1: Introduction</div>
-      <div class="carousel-item" style="background-image: url('img/tuto2.jpg');">Tutoriel 2: Avancé</div>
-      <div class="carousel-item" style="background-image: url('img/tuto3.jpg');">Tutoriel 3: Expert</div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselTutos" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselTutos" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-  </div>
-</header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">HAMELV.FR</a>
+            </div>
 
-<!-- Barre de recherche -->
-<div class="search-bar text-center">
-  <input type="text" id="searchInput" class="form-control input-lg" placeholder="Rechercher un article...">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="actualites_it.html">Actualités IT</a>
+                    </li>
+                    <li>
+                        <a href="anssi.html">Vulnérabilités</a>
+                    </li>
+                    <li>
+                        <a href="tutoriels.html">Tutoriels</a>
+                    </li>
+                    <li>
+                        <a href="about.html">à propos</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Vincent Hamel</h1>
+                        <hr class="small">
+                        <span class="subheading">Passionné par les systèmes, les réseaux et la cybersécurité. Explorez mes projets, ma veille technologique et mes tutoriels.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container text-center" style="margin-top: 40px;">
+    <h2>Tutoriels</h2>
 </div>
 
-<!-- Grille des blogs -->
-<section class="blog-grid" id="blogGrid">
-  <div class="blog-post">
-    <h3>Blog 1: Déploiement réseau</h3>
-    <p>Introduction au VLAN et segmentation réseau.</p>
-  </div>
-  <div class="blog-post">
-    <h3>Blog 2: Sécurité Linux</h3>
-    <p>Configurer un pare-feu avec UFW efficacement.</p>
-  </div>
-  <div class="blog-post">
-    <h3>Blog 3: Supervision</h3>
-    <p>Installation de Zabbix pour la surveillance.</p>
-  </div>
-  <div class="blog-post">
-    <h3>Blog 4: Sauvegardes</h3>
-    <p>Automatiser les backups avec Rsync et Cron.</p>
-  </div>
-</section>
+<!-- Carrousel de tutoriels -->
+<div id="carouselTutos" class="carousel slide container" data-ride="carousel" style="margin-top: 20px;">
+    <!-- Indicateurs -->
+    <ol class="carousel-indicators">
+        <li data-target="#carouselTutos" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselTutos" data-slide-to="1"></li>
+        <li data-target="#carouselTutos" data-slide-to="2"></li>
+    </ol>
 
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  // Recherche dynamique
-  document.getElementById('searchInput').addEventListener('input', function () {
-    const val = this.value.toLowerCase();
-    document.querySelectorAll('.blog-post').forEach(el => {
-      el.style.display = el.textContent.toLowerCase().includes(val) ? 'block' : 'none';
-    });
-  });
-</script>
+    <!-- Slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <a href="lien-vers-tuto-1.html">
+                <img src="img/tuto1.jpg" alt="Tutoriel 1" class="img-responsive center-block">
+                <div class="carousel-caption">Titre du tutoriel 1</div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="lien-vers-tuto-2.html">
+                <img src="img/tuto2.jpg" alt="Tutoriel 2" class="img-responsive center-block">
+                <div class="carousel-caption">Titre du tutoriel 2</div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="lien-vers-tuto-3.html">
+                <img src="img/tuto3.jpg" alt="Tutoriel 3" class="img-responsive center-block">
+                <div class="carousel-caption">Titre du tutoriel 3</div>
+            </a>
+        </div>
+    </div>
 
+    <!-- Contrôles -->
+    <a class="left carousel-control" href="#carouselTutos" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carouselTutos" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                    <a href="about.html">
+                        <h2 class="post-title">
+                            Mon Curriculum vitæ
+                        </h2>
+                        <h3 class="post-subtitle">
+                            Mon Curriculum Vitæ, détaillant mon parcours, mes compétences et mes expériences professionnelles dans le domaine informatique.
+                        </h3>
+                    </a>
+                    <p class="post-meta">Publié par <a href="#">Vincent HAMEL</a> on Juillet 23, 2024</p>
+                </div>
+                <hr>
+                <div class="post-preview">
+                    <a href="actualites_it.html">
+                        <h2 class="post-title">
+                            Actualités Informatique
+                        </h2>
+                        <h3 class="post-subtitle">
+                            Les dernières actualités du secteur informatique. Elle regroupe des articles sur les technologies, la cybersécurité, les logiciels et l’innovation. C’est un outil de veille essentiel pour rester informé des évolutions du domaine IT.
+                        </h3>
+                    </a>
+                    <p class="post-meta">Publié par <a href="#">Vincent HAMEL</a> on Janvier 13, 2024</p>
+                </div>
+                <hr>
+                <div class="post-preview">
+                    <a href="anssi.html">
+                        <h2 class="post-title">
+                            CVE critiques publiées par l'ANSSI
+                        </h2>
+                        <h3 class="post-subtitle">
+                            Une analyse rapide des dernières vulnérabilités critiques et comment s’en protéger
+                        </h3>
+                    </a>
+                    <p class="post-meta">Publié par <a href="#">Vincent HAMEL</a> on Août 23, 2023</p>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://www.linkedin.com/in/vincent-hamel-9b9422229/" target="_blank" aria-label="LinkedIn">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://tryhackme.com/p/ITvenn" target="_blank" aria-label="TryHackMe">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/ITvenn" target="_blank" aria-label="GitHub">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; HAMELV.FR 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+    <!-- Contributeur Alexis Dupont -->
 </body>
+
 </html>
