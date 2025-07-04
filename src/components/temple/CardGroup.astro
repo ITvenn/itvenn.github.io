@@ -1,11 +1,10 @@
----
 import type { CardGroupProps } from "@interfaces/data";
 
 const {
   class: className = "",
   cols = "2", // Default 2 columns
 } = Astro.props as CardGroupProps;
----
+
 
 <div class={`card-group ${className}`}>
   <slot />
