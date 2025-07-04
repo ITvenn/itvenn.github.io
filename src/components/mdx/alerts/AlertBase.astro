@@ -1,7 +1,8 @@
+---
 import { Icon } from "astro-icon/components";
 
 const { type, icon } = Astro.props;
-
+---
 
 <div role="alert" class={`alert alert-${type} not-prose`}>
   <slot name="icon">
