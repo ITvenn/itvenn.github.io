@@ -68,7 +68,7 @@ user:
       - href: "https://github.com/ITvenn"
         ariaLabel: Github
         title: Github
-        svg: "ri:github-line"
+        svg: "ri:github-fill"
       - href: "https://tryhackme.com/p/ITvenn"
         ariaLabel: TryHackMe
         title: TryHackMe
