@@ -25,7 +25,7 @@ site:
     - id: security
       text: "🛡️ ANSSI & CVE"
       href: "/anssi-cve"
-      svg: "material-symbols:security-outline"
+      svg: "material-symbols:shield-outline"
       target: _self
     - id: tutorials
       text: "🧑‍💻 Tutoriels"
