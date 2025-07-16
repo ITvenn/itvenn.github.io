@@ -49,42 +49,19 @@ site:
       target: _self
 
 user:
-  name: EveSunMaple # 用户名
-  site: "https://frosti.saroprock.com" # 用户的网站链接
-  avatar: /profile.png # 用户头像路径
-  sidebar: # 侧边栏配置
+  name: ITvenn # User's name
+  site: "https://www.hamelv.fr" # User's personal website URL
+  avatar: /profile.png # User avatar
+  sidebar:
     social:
-      - href: "https://afdian.com/a/saroprock" # 链接
-        ariaLabel: Support my work # 图标的可访问性标签
-        title: Support my work # 图标的悬浮标题
-        svg: "ri:cup-line"
-      - href: "https://github.com/EveSunMaple"
+      - href: "https://github.com/ITvenn"
         ariaLabel: Github
         title: Github
         svg: "ri:github-line"
-      - href: "https://space.bilibili.com/438392347"
-        ariaLabel: BiliBili
-        title: BiliBili
-        svg: "ri:bilibili-line"
-      - href: "https://x.com/EveSunMaple"
-        ariaLabel: X(twitter)
-        title: X(twitter)
-        svg: "ri:twitter-line"
+
   footer:
     social:
-      - href: "https://afdian.com/a/saroprock" # 链接
-        ariaLabel: Support my work # 图标的可访问性标签
-        title: Support my work # 图标的悬浮标题
-        svg: "ri:cup-line"
-      - href: "https://github.com/EveSunMaple"
+      - href: "https://github.com/ITvenn"
         ariaLabel: Github
         title: Github
         svg: "ri:github-line"
-      - href: "https://space.bilibili.com/438392347"
-        ariaLabel: BiliBili
-        title: BiliBili
-        svg: "ri:bilibili-line"
-      - href: "https://x.com/EveSunMaple"
-        ariaLabel: X(twitter)
-        title: X(twitter)
-        svg: "ri:twitter-line"
