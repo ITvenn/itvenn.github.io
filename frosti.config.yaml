@@ -54,6 +54,10 @@ user:
   avatar: /profile.png # User avatar
   sidebar:
     social:
+      - href: "https://www.linkedin.com/in/vincent-hamel-9b9422229"
+        ariaLabel: LinkedIn
+        title: LinkedIn
+        svg: "ri-linkedin-line"
       - href: "https://github.com/ITvenn"
         ariaLabel: Github
         title: Github
@@ -69,7 +73,3 @@ user:
         ariaLabel: Github
         title: Github
         svg: "ri:github-line"
-      - href: "https://tryhackme.com/p/ITvenn"
-        ariaLabel: TryHackMe
-        title: TryHackMe
-        svg: "material-symbols:shield-person-outline"
