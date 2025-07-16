@@ -16,7 +16,7 @@ site:
       text: "🏠 Accueil"  # Libellé affiché
       href: "/"          # Lien
       svg: "material-symbols:home-outline-rounded"   # Icône
-     target: _self      # Cible du lien
+      target: _self      # Cible du lien
     - id: news
       text: "📰 Actualité IT"
       href: "/actualite-it"
