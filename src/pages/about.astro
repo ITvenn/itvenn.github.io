@@ -5,10 +5,10 @@ import MainCard from "@/components/MainCard.astro";
 import GitHubStats from "@/components/mdx/GitHubStats.astro";
 ---
 
-<BaseLayout title="About">
+<BaseLayout title="A propos de moi">
   <MainCard
-    title="About SunMaple"
-    description="Developer, open-source enthusiast, and creator of the Frosti blog theme."
+    title="A propos de moi"
+    description="Administrateur systèmes et réseaux, et passionné de technologie, je suis Vincent HAMEL. Découvrez mon parcours, mes compétences et mes contributions à l'open source."
     textOverlay="ABOUT"
     infoIcon="lucide:user"
   >
@@ -19,13 +19,13 @@ import GitHubStats from "@/components/mdx/GitHubStats.astro";
           <div
             class="w-32 h-32 md:w-40 md:h-40 rounded-xl ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden"
           >
-            <img src="https://github.com/ITvenn.png" alt="SunMaple" width="160" height="160" loading="eager" />
+            <img src="https://github.com/ITvenn.png" alt="Vincent HAMEL" width="160" height="160" loading="eager" />
           </div>
         </div>
 
         <div class="flex-1 text-center md:text-left">
-          <h1 class="text-3xl md:text-4xl font-bold mb-2">SunMaple</h1>
-          <p class="text-xl text-base-content/80 mb-4">Developer & Open-Source Enthusiast</p>
+          <h1 class="text-3xl md:text-4xl font-bold mb-2">HAMEL Vincent</h1>
+          <p class="text-xl text-base-content/80 mb-4">Administrateur Systèmes & Réseaux</p>
 
           <div class="flex flex-wrap gap-3 justify-center md:justify-start mb-6">
             <a
@@ -53,10 +53,7 @@ import GitHubStats from "@/components/mdx/GitHubStats.astro";
           </div>
 
           <p class="text-base-content/80">
-            Hello! I'm SunMaple, a passionate developer focused on creating elegant, responsive, and efficient web
-            applications. I'm the creator of the Frosti blog theme, a modern Astro-based theme for content creators. I
-            love contributing to open-source projects and building tools that help others create beautiful digital
-            experiences.
+            Bonjour ! Je suis Vincent HAMEL, un administrateur systèmes et réseaux passionné par la technologie.
           </p>
         </div>
       </section>
@@ -81,18 +78,31 @@ import GitHubStats from "@/components/mdx/GitHubStats.astro";
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {
             [
-              { name: "Astro", icon: "simple-icons:astro", color: "oklch(0.5 0.2 300)" },
-              { name: "JavaScript", icon: "simple-icons:javascript", color: "oklch(0.8 0.2 80)" },
-              { name: "TypeScript", icon: "simple-icons:typescript", color: "oklch(0.6 0.2 250)" },
-              { name: "React", icon: "simple-icons:react", color: "oklch(0.7 0.2 200)" },
-              { name: "Node.js", icon: "simple-icons:nodedotjs", color: "oklch(0.7 0.2 140)" },
-              { name: "TailwindCSS", icon: "simple-icons:tailwindcss", color: "oklch(0.6 0.2 220)" },
-              { name: "HTML5", icon: "simple-icons:html5", color: "oklch(0.7 0.2 30)" },
-              { name: "CSS3", icon: "simple-icons:css3", color: "oklch(0.7 0.2 220)" },
-              { name: "Git", icon: "simple-icons:git", color: "oklch(0.7 0.2 30)" },
-              { name: "C++", icon: "simple-icons:cplusplus", color: "oklch(0.6 0.2 240)" },
-              { name: "C#", icon: "simple-icons:csharp", color: "oklch(0.6 0.2 160)" },
-              { name: "Python", icon: "simple-icons:python", color: "oklch(0.7 0.2 250)" },
+              // SYSTÈMES & RÉSEAUX
+              { name: "Cisco", icon: "simple-icons:cisco", color: "oklch(0.6 0.2 180)" },
+              { name: "Aruba", icon: "simple-icons:hewlettpackardenterprise", color: "oklch(0.6 0.2 90)" },
+              { name: "Fortigate", icon: "simple-icons:fortinet", color: "oklch(0.6 0.2 10)" },
+              { name: "Active Directory", icon: "simple-icons:microsoft", color: "oklch(0.6 0.2 250)" },
+              { name: "Windows Server", icon: "simple-icons:windows", color: "oklch(0.7 0.2 240)" },
+              { name: "Linux", icon: "simple-icons:linux", color: "oklch(0.6 0.2 80)" },
+              { name: "VMware", icon: "simple-icons:vmware", color: "oklch(0.7 0.2 140)" },
+              { name: "Hyper-V", icon: "simple-icons:microsoft", color: "oklch(0.6 0.2 250)" },
+              { name: "Docker", icon: "simple-icons:docker", color: "oklch(0.6 0.2 210)" },
+              { name: "Unifi", icon: "simple-icons:ubiquiti", color: "oklch(0.6 0.2 200)" },
+              { name: "Veeam", icon: "simple-icons:veeam", color: "oklch(0.6 0.2 140)" },
+
+              // LANGAGES & FRAMEWORKS
+              { name: "Bash", icon: "simple-icons:gnubash", color: "oklch(0.6 0.2 120)" },
+              { name: "PowerShell", icon: "simple-icons:powershell", color: "oklch(0.6 0.2 240)" },
+
+              // OUTILS / APPLICATIONS
+              { name: "Apache", icon: "simple-icons:apache", color: "oklch(0.7 0.2 30)" },
+              { name: "GLPI", icon: "simple-icons:glpi", color: "oklch(0.6 0.2 50)" },
+              { name: "Centreon", icon: "simple-icons:centreon", color: "oklch(0.6 0.2 90)" },
+              { name: "OpenVAS", icon: "simple-icons:openvas", color: "oklch(0.6 0.2 130)" },
+              { name: "Graylog", icon: "simple-icons:graylog", color: "oklch(0.6 0.2 0)" },
+              { name: "PingCastle", icon: "lucide:castle", color: "oklch(0.6 0.2 10)" },
+              { name: "Purple Knight", icon: "lucide:shield", color: "oklch(0.6 0.2 270)" },
             ].map((tech) => (
               <div class="flex flex-col items-center justify-center p-4 bg-base-200 rounded-lg hover:bg-base-300 transition-colors">
                 <div class="text-3xl mb-2" style={`color: ${tech.color}`}>
