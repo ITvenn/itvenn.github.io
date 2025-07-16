@@ -65,7 +65,7 @@ user:
       - href: "https://tryhackme.com/p/ITvenn"
         ariaLabel: TryHackMe
         title: TryHackMe
-        svg: "si:tryhackme"
+        svg: "ri:shield-line"
 
   footer:
     social:
@@ -80,4 +80,4 @@ user:
       - href: "https://tryhackme.com/p/ITvenn"
         ariaLabel: TryHackMe
         title: TryHackMe
-        svg: "si:tryhackme"
+        svg: "ri:shield-line"
