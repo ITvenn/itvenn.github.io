@@ -61,7 +61,15 @@ user:
 
   footer:
     social:
+      - href: "https://www.linkedin.com/in/vincent-hamel-9b9422229"
+        ariaLabel: LinkedIn
+        title: LinkedIn
+        svg: "ri-linkedin-fill"
       - href: "https://github.com/ITvenn"
         ariaLabel: Github
         title: Github
         svg: "ri:github-line"
+      - href: "https://tryhackme.com/p/ITvenn"
+        ariaLabel: TryHackMe
+        title: TryHackMe
+        svg: "fi-snsuxl-tryhackme"
