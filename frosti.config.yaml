@@ -13,37 +13,37 @@ site:
     pageSize: 8 
   menu: 
     - id: home           # Identifiant unique
-      text: "🏠 Accueil"  # Libellé affiché
+      text: "Accueil"  # Libellé affiché
       href: "/"          # Lien
       svg: "material-symbols:home-outline-rounded"   # Icône
       target: _self      # Cible du lien
     - id: news
-      text: "📰 Actualité IT"
+      text: "Actualité IT"
       href: "/actualite-it"
       svg: "material-symbols:feed-outline"
       target: _self
     - id: security
-      text: "🛡️ ANSSI & CVE"
+      text: "ANSSI & CVE"
       href: "/anssi-cve"
       svg: "material-symbols:shield-outline"
       target: _self
     - id: tutorials
-      text: "🧑‍💻 Tutoriels"
+      text: "Tutoriels"
       href: "/tutoriels"
       svg: "material-symbols:school-outline"
       target: _self
     - id: github
-      text: "📂 Projets GitHub"
+      text: "Projets GitHub"
       href: "https://github.com/votre-utilisateur"   # Remplacez par votre URL GitHub
       svg: "ri:github-fill"
       target: _blank
     - id: about
-      text: "👤 À propos de moi"
+      text: "À propos de moi"
       href: "/about"
       svg: "material-symbols:person-outline-rounded"
       target: _self
     - id: contact
-      text: "📬 Contact"
+      text: "Contact"
       href: "/contact"
       svg: "material-symbols:mail-outline"
       target: _self
