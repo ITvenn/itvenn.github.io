@@ -62,6 +62,10 @@ user:
         ariaLabel: Github
         title: Github
         svg: "ri:github-line"
+      - href: "https://tryhackme.com/p/ITvenn"
+        ariaLabel: TryHackMe
+        title: TryHackMe
+        svg: "si:tryhackme"
 
   footer:
     social:
@@ -76,4 +80,4 @@ user:
       - href: "https://tryhackme.com/p/ITvenn"
         ariaLabel: TryHackMe
         title: TryHackMe
-        svg: "/icons/tryhackme.svg"
+        svg: "si:tryhackme"
