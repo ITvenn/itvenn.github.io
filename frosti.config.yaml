@@ -72,4 +72,4 @@ user:
       - href: "https://tryhackme.com/p/ITvenn"
         ariaLabel: TryHackMe
         title: TryHackMe
-        svg: "/tryhackme.svg"
+        svg: "material-symbols:shield-person-outline"
