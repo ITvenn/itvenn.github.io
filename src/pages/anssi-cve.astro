@@ -3,109 +3,31 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Icon } from "astro-icon/components";
 import MainCard from "@/components/MainCard.astro";
 import GitHubStats from "@/components/mdx/GitHubStats.astro";
+import RepositoryCard from "@/components/mdx/RepositoryCard.astro";
 ---
 
-<BaseLayout title="A propos de moi">
+<BaseLayout title="Anssi CVE">
   <MainCard
-    title="A propos de moi"
-    description="Administrateur systèmes et réseaux, et passionné de technologie, je suis Vincent HAMEL. Découvrez mon parcours, mes compétences et mes contributions à l'open source."
-    textOverlay="ABOUT"
-    infoIcon="lucide:user"
+    title="Veille cybersécurité – Alertes de l’ANSSI"
+    description="Explorer les dernières vulnérabilités CVE publiées par l'ANSSI."
+    textOverlay="ANSSI"
+    infoIcon="lucide:code-2"
   >
-    <div class="space-y-10 mb-8">
-      <!-- Profile Section -->
-      <section class="flex flex-col md:flex-row gap-8 items-center md:items-start">
-        <div class="avatar">
-          <div
-            class="w-32 h-32 md:w-40 md:h-40 rounded-xl ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden"
-          >
-            <img src="https://github.com/ITvenn.png" alt="Vincent HAMEL" width="160" height="160" loading="eager" />
-          </div>
-        </div>
-
-        <div class="flex-1 text-center md:text-left">
-          <h1 class="text-3xl md:text-4xl font-bold mb-2">HAMEL Vincent</h1>
-          <p class="text-xl text-base-content/80 mb-4">Administrateur Systèmes & Réseaux</p>
-
-          <div class="flex flex-wrap gap-3 justify-center md:justify-start mb-6">
-            <a
-              href="https://github.com/ITvenn"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-sm btn-outline gap-2"
-            >
-              <Icon name="lucide:github" class="w-4 h-4" />
-              <span>GitHub</span>
-            </a>
-            <a href="mailto:hamelvincentpro@gmail.com" class="btn btn-sm btn-outline gap-2">
-              <Icon name="lucide:mail" class="w-4 h-4" />
-              <span>Email</span>
-            </a>
-          </div>
-
-          <p class="text-base-content/80">
-            Administrateur systèmes et réseaux depuis 3 ans au sein de la Communauté de Communes Normandie Cabourg Pays d’Auge, je poursuis actuellement un Mastère en Management et Cybersécurité des SI afin de renforcer mes compétences, notamment en cybersécurité.
-            Autonome, rigoureux et impliqué, je souhaite consolider mon expertise technique et à terme évoluer vers des fonctions de pilotage de projets IT ou de RSSI.
-          </p>
-        </div>
-      </section>
-
-      <!-- GitHub Stats -->
-      <section>
-        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-          <Icon name="lucide:github" class="w-6 h-6 text-primary" />
-          <span>GitHub Statistics</span>
-        </h2>
-
-        <GitHubStats username="ITvenn" showLanguages={false} showCommitGraph={true} />
-      </section>
-
-      <!-- Compétences -->
-      <section>
-        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-          <Icon name="lucide:code-2" class="w-6 h-6 text-primary" />
-          <span>Compétences</span>
-        </h2>
-
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          {
-            [
-              // SYSTÈMES & RÉSEAUX
-              { name: "Cisco", icon: "simple-icons:cisco", color: "oklch(0.6 0.2 180)" },
-              { name: "Aruba", icon: "lucide:network", color: "oklch(0.6 0.2 90)" },
-              { name: "Fortigate", icon: "simple-icons:fortinet", color: "oklch(0.6 0.2 10)" },
-              { name: "Active Directory", icon: "simple-icons:microsoft", color: "oklch(0.6 0.2 250)" },
-              { name: "Windows Server", icon: "simple-icons:windows", color: "oklch(0.7 0.2 240)" },
-              { name: "Linux", icon: "simple-icons:linux", color: "oklch(0.6 0.2 80)" },
-              { name: "VMware", icon: "simple-icons:vmware", color: "oklch(0.7 0.2 140)" },
-              { name: "Hyper-V", icon: "simple-icons:microsoft", color: "oklch(0.6 0.2 250)" },
-              { name: "Docker", icon: "simple-icons:docker", color: "oklch(0.6 0.2 210)" },
-              { name: "Unifi", icon: "simple-icons:ubiquiti", color: "oklch(0.6 0.2 200)" },
-              { name: "Veeam", icon: "simple-icons:veeam", color: "oklch(0.6 0.2 140)" },
-
-              // LANGAGES & FRAMEWORKS
-              { name: "Bash", icon: "simple-icons:gnubash", color: "oklch(0.6 0.2 120)" },
-              { name: "PowerShell", icon: "simple-icons:powershell", color: "oklch(0.6 0.2 240)" },
-
-              // OUTILS / APPLICATIONS
-              { name: "Apache", icon: "simple-icons:apache", color: "oklch(0.7 0.2 30)" },
-              { name: "GLPI", icon: "lucide:layout-grid", color: "oklch(0.6 0.2 50)" },
-              { name: "Centreon", icon: "lucide:activity", color: "oklch(0.6 0.2 90)" },
-              { name: "OpenVAS", icon: "lucide:radar", color: "oklch(0.6 0.2 130)" },
-              { name: "Graylog", icon: "lucide:bar-chart-3", color: "oklch(0.6 0.2 0)" },
-              { name: "PingCastle", icon: "lucide:castle", color: "oklch(0.6 0.2 10)" },
-              { name: "Purple Knight", icon: "lucide:shield", color: "oklch(0.6 0.2 270)" },
-            ].map((tech) => (
-              <div class="flex flex-col items-center justify-center p-4 bg-base-200 rounded-lg hover:bg-base-300 transition-colors">
-                <div class="text-3xl mb-2" style={`color: ${tech.color}`}>
-                  <Icon name={tech.icon} class="w-10 h-10" />
+    <!--  Anssi CVE -->
+    <section class="py-4">
+      <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+        <Icon name="lucide:folder" class="w-6 h-6 text-primary" />
+        <span>Dernières CVE publiées</span>
+      </h2>
+      <div class="flex justify-center mt-10">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <section id="vulnerabilities">
+                <div id="security-updates-list" aria-live="polite">
+                  <p>Chargement des alertes de sécurité...</p>
                 </div>
-                <span class="text-sm font-medium">{tech.name}</span>
-              </div>
-            ))
-          }
+            </section>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </MainCard>
 </BaseLayout>
