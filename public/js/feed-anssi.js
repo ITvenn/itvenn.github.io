@@ -15,7 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 output += `
                     <tr>
                         <td style="padding-right: 20px;">${formattedDate}</td>
-                        <td><a href="${item.link}" target="_blank">${truncateText(item.title, 100)}</a></td>
+                        <td>
+                            <a href="${item.link}" target="_blank" rel="noopener noreferrer" data-no-swup>
+                                ${truncateText(item.title, 100)}
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="2"><hr style="border:1px dashed #ccc; margin: 8px 0;"></td>
