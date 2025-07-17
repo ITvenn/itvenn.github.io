@@ -20,14 +20,14 @@ import RepositoryCard from "@/components/mdx/RepositoryCard.astro";
         <span>Dernières CVE publiées</span>
       </h2>
       <div class="flex justify-center mt-10">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <section id="vulnerabilities">
-                <div id="security-updates-list" aria-live="polite">
-                  <p>Chargement des alertes de sécurité...</p>
-                </div>
-            </section>
+        <div id="security-updates-list" aria-live="polite">
+          <p>Chargement des alertes de sécurité...</p>
         </div>
       </div>
     </section>
   </MainCard>
+
+  <!-- Chargement du script JS feed-anssi -->
+  <script src="/js/feed-anssi.js"></script>
+
 </BaseLayout>
