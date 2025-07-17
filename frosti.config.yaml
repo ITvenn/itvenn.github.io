@@ -29,23 +29,18 @@ site:
       target: _self
     - id: tutorials
       text: "Tutoriels"
-      href: "/tutoriels"
+      href: "/blog"
       svg: "material-symbols:school-outline"
       target: _self
     - id: github
       text: "Projets GitHub"
-      href: "https://github.com/votre-utilisateur"   # Remplacez par votre URL GitHub
+      href: "https://github.com/ITvenn"   # Remplacez par votre URL GitHub
       svg: "ri:github-fill"
       target: _blank
     - id: about
       text: "À propos de moi"
       href: "/about"
       svg: "material-symbols:person-outline-rounded"
-      target: _self
-    - id: contact
-      text: "Contact"
-      href: "/contact"
-      svg: "material-symbols:mail-outline"
       target: _self
 
 user:
