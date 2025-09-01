@@ -75,11 +75,8 @@ async function fetchRSSFeed(feed) {
   }
 }
 
-// Initialisation des flux RSS
 async function initRSSFeeds() {
   const container = document.getElementById('rss-feeds-container');
-  const loader = document.getElementById('rss-loading');
-  loader.style.display = 'none';
 
   const feedElements = RSS_FEEDS.map(feed => {
     const element = createRSSFeedElement(feed);
@@ -87,12 +84,12 @@ async function initRSSFeeds() {
     return { feed, element };
   });
 
-  // Récupération parallèle des flux
   await Promise.all(feedElements.map(async ({ feed, element }) => {
     const items = await fetchRSSFeed(feed);
     if (items.length) updateRSSFeedElement(element, items);
-    else element.querySelector('tbody').innerHTML = '<tr><td colspan="2" class="px-2 py-1">Impossible de charger les actualités</td></tr>';
+    else element.querySelector('tbody').innerHTML = '<tr><td colspan="2">Impossible de charger les actualités</td></tr>';
   }));
 }
+
 
 document.addEventListener('DOMContentLoaded', initRSSFeeds);
