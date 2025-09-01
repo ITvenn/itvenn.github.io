@@ -78,19 +78,23 @@ async function fetchRSSFeed(feed) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+async function loadRSSFeeds() {
   const container = document.getElementById('rss-feeds-container');
+  if (!container) return;
+
   const fragment = document.createDocumentFragment();
 
-  RSS_FEEDS.forEach(feed => {
+  for (const feed of RSS_FEEDS) {
     const feedElement = createRSSFeedElement(feed);
     fragment.appendChild(feedElement);
 
-    fetchRSSFeed(feed).then(items => {
-      if (items.length) updateRSSFeedElement(feedElement, items);
-      else feedElement.querySelector('tbody').innerHTML = '<tr><td colspan="2" class="px-2 py-1">Impossible de charger les actualités</td></tr>';
-    });
-  });
+    const items = await fetchRSSFeed(feed);
+    if (items.length) updateRSSFeedElement(feedElement, items);
+    else feedElement.querySelector('tbody').innerHTML = '<tr><td colspan="2" class="px-2 py-1">Impossible de charger les actualités</td></tr>';
+  }
 
   container.appendChild(fragment);
-});
+}
+
+// Chargement automatique au rendu complet de la page
+loadRSSFeeds();
