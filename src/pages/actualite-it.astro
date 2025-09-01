@@ -17,6 +17,11 @@ import MainCard from "@/components/MainCard.astro";
         <span>Dernières actualités RSS</span>
       </h1>
 
+      <!-- Loader global -->
+      <p id="rss-loading" class="text-center text-gray-500 animate-pulse mb-4">
+        Chargement des flux d’actualités...
+      </p>
+
       <!-- Conteneur des flux -->
       <div id="rss-feeds-container" class="flex flex-col gap-6" aria-live="polite"></div>
     </section>

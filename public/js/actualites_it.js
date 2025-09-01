@@ -1,5 +1,5 @@
 const RSS_FEEDS = [
-  { name: 'IT-Connect', url: 'https://www.it-connect.fr/feed/', logo: 'https://www.it-connect.fr/wp-content-itc/uploads/2017/06/IT-Connect_Flat_072017_Small_v2.png' },
+  { name: 'IT-Connect', url: 'https://www.it-connect.fr/feed/', logo: '/image/logo_site_actualites/logo_itconnect.png' },
   { name: 'Le Monde Informatique', url: 'https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml', logo: '/image/logo_site_actualites/logo_lemondeinformatique.gif' },
   { name: 'Korben.info', url: 'https://korben.info/feed', logo: 'https://korben.info/img/logo-small.svg' },
   { name: 'ZDNet', url: 'https://www.zdnet.fr/feeds/rss/actualites/', logo: 'https://www.zdnet.fr/wp-content/themes/cnet-zdnet/zdnet/assets/images/icons/svg/zdnet-logo--midnght-horizontal.svg' },
@@ -75,8 +75,10 @@ async function fetchRSSFeed(feed) {
   }
 }
 
+// Initialisation des flux RSS
 async function initRSSFeeds() {
   const container = document.getElementById('rss-feeds-container');
+  const loader = document.getElementById('rss-loading');
 
   const feedElements = RSS_FEEDS.map(feed => {
     const element = createRSSFeedElement(feed);
@@ -84,12 +86,18 @@ async function initRSSFeeds() {
     return { feed, element };
   });
 
+  // Récupération parallèle avec gestion des erreurs
   await Promise.all(feedElements.map(async ({ feed, element }) => {
     const items = await fetchRSSFeed(feed);
-    if (items.length) updateRSSFeedElement(element, items);
-    else element.querySelector('tbody').innerHTML = '<tr><td colspan="2">Impossible de charger les actualités</td></tr>';
+    if (items.length) {
+      updateRSSFeedElement(element, items);
+    } else {
+      element.querySelector('tbody').innerHTML = '<tr><td colspan="2" class="px-2 py-1">Impossible de charger les actualités</td></tr>';
+    }
   }));
-}
 
+  // Masquer le loader une fois toutes les requêtes terminées
+  loader.style.display = 'none';
+}
 
 document.addEventListener('DOMContentLoaded', initRSSFeeds);
