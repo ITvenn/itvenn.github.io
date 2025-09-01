@@ -1,5 +1,5 @@
 const RSS_FEEDS = [
-  { name: 'IT-Connect', url: 'https://www.it-connect.fr/feed/', logo: '/image/logo_site_actualites/logo_itconnect.png' },
+  { name: 'IT-Connect', url: 'https://www.it-connect.fr/feed/', logo: 'https://www.it-connect.fr/wp-content-itc/uploads/2017/06/IT-Connect_Flat_072017_Small_v2.png' },
   { name: 'Le Monde Informatique', url: 'https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml', logo: '/image/logo_site_actualites/logo_lemondeinformatique.gif' },
   { name: 'Korben.info', url: 'https://korben.info/feed', logo: 'https://korben.info/img/logo-small.svg' },
   { name: 'ZDNet', url: 'https://www.zdnet.fr/feeds/rss/actualites/', logo: 'https://www.zdnet.fr/wp-content/themes/cnet-zdnet/zdnet/assets/images/icons/svg/zdnet-logo--midnght-horizontal.svg' },
