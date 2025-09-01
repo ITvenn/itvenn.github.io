@@ -31,6 +31,33 @@ import MainCard from "@/components/MainCard.astro";
     </section>
 
     <!-- Script pour charger les flux RSS -->
-    <script src="/js/actualites_it.js" defer></script>
+    <script src="/js/multi-rss-feeds.js" defer></script>
   </MainCard>
 </BaseLayout>
+
+<style>
+.rss-feed {
+  @apply bg-white shadow-md rounded-xl p-4 border border-gray-200 transition hover:shadow-lg;
+}
+.rss-feed-header {
+  @apply flex items-center gap-3 mb-4;
+}
+.rss-feed-logo {
+  @apply w-10 h-10 object-contain;
+}
+.rss-feed-title {
+  @apply text-lg font-semibold;
+}
+.rss-feed-list {
+  @apply space-y-3;
+}
+.rss-feed-item a {
+  @apply block text-sm text-gray-700 hover:text-blue-600;
+}
+.rss-feed-item-title {
+  @apply font-medium;
+}
+.rss-feed-item-date {
+  @apply text-xs text-gray-500;
+}
+</style>
