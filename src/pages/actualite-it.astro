@@ -2,6 +2,38 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Icon } from "astro-icon/components";
 import MainCard from "@/components/MainCard.astro";
+
+const RSS_FEEDS = [
+  { name: 'IT-Connect', url: 'https://www.it-connect.fr/feed/', logo: 'https://www.it-connect.fr/wp-content-itc/uploads/2017/06/IT-Connect_Flat_072017_Small_v2.png' },
+  { name: 'Le Monde Informatique', url: 'https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml', logo: '/image/logo_site_actualites/logo_lemondeinformatique.gif' },
+  { name: 'Korben.info', url: 'https://korben.info/feed', logo: 'https://korben.info/img/logo-small.svg' },
+  { name: 'ZDNet', url: 'https://www.zdnet.fr/feeds/rss/actualites/', logo: 'https://www.zdnet.fr/wp-content/themes/cnet-zdnet/zdnet/assets/images/icons/svg/zdnet-logo--midnght-horizontal.svg' },
+  { name: 'LeBigData.fr', url: 'https://www.lebigdata.fr/feed', logo: '/image/logo_site_actualites/logo_lebigdata.gif' },
+  { name: 'FrAndroid', url: 'https://www.frandroid.com/feed', logo: '/image/logo_site_actualites/logo_frandroid.gif' },
+  { name: "Tom's Hardware", url: 'https://www.tomshardware.fr/feed/', logo: '/image/logo_site_actualites/logo_tomshardware.gif' },
+  { name: 'Overclocking Made in France', url: 'https://www.overclocking.com/feed/', logo: '/image/logo_site_actualites/logo_overclocking.gif' },
+  { name: 'Generation-NT', url: 'https://www.generation-nt.com/export/rss.xml', logo: '/image/logo_site_actualites/logo_gnt.gif' },
+  { name: 'Les Numériques', url: 'https://www.lesnumeriques.com/rss.xml', logo: '/image/logo_site_actualites/logo_lesnumeriques.gif' }
+];
+
+import Parser from 'rss-parser';
+const parser = new Parser();
+
+async function fetchRSSFeeds() {
+  const results = [];
+  for (const feed of RSS_FEEDS) {
+    try {
+      const parsed = await parser.parseURL(feed.url);
+      results.push({ ...feed, items: parsed.items.slice(0, 20) });
+    } catch (err) {
+      console.error(`Erreur flux ${feed.name}:`, err);
+      results.push({ ...feed, items: [] });
+    }
+  }
+  return results;
+}
+
+const feeds = await fetchRSSFeeds();
 ---
 
 <BaseLayout title="Veille technologique – Flux RSS">
@@ -14,14 +46,42 @@ import MainCard from "@/components/MainCard.astro";
     <section class="py-4">
       <h1 class="text-3xl font-bold mb-8 flex items-center gap-2">
         <Icon name="lucide:rss" class="w-8 h-8 text-orange-500" />
-        <span>Dernières actualités IT</span>
+        <span>Dernières actualités RSS</span>
       </h1>
 
-      <!-- Conteneur des flux -->
-      <div id="rss-feeds-container" class="flex flex-col gap-6" aria-live="polite"></div>
+      <div class="flex flex-col gap-6">
+        {feeds.map(feed => (
+          <div class="rss-feed" key={feed.name}>
+            <div class="rss-feed-header flex items-center gap-2 mb-2">
+              <img src={feed.logo} alt={`${feed.name} logo`} class="rss-feed-logo w-10 h-10 object-contain" />
+              <h2 class="rss-feed-title text-xl font-semibold">{feed.name}</h2>
+            </div>
+            <div class="rss-feed-table-container overflow-x-auto">
+              <table class="rss-feed-table w-full text-left border-collapse">
+                <thead class="bg-gray-100">
+                  <tr>
+                    <th class="px-2 py-1">Date</th>
+                    <th class="px-2 py-1">Titre</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {feed.items.length > 0
+                    ? feed.items.map(item => (
+                        <tr key={item.link}>
+                          <td class="px-2 py-1">{new Date(item.pubDate).toLocaleDateString('fr-FR')}</td>
+                          <td class="px-2 py-1">
+                            <a href={item.link} target="_blank" class="text-blue-600 hover:underline">{item.title}</a>
+                          </td>
+                        </tr>
+                      ))
+                    : <tr><td colspan="2" class="px-2 py-1">Impossible de charger les actualités</td></tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
-
-    <!-- Script pour charger les flux RSS -->
-    <script type="module" src="/js/actualites_it.js"></script>
   </MainCard>
 </BaseLayout>
