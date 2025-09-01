@@ -14,19 +14,14 @@ import MainCard from "@/components/MainCard.astro";
     <section class="py-4">
       <h1 class="text-3xl font-bold mb-8 flex items-center gap-2">
         <Icon name="lucide:rss" class="w-8 h-8 text-orange-500" />
-        <span>Dernières actualités RSS</span>
+        <span>Dernières actualités IT</span>
       </h1>
-
-      <!-- Loader global -->
-      <p id="rss-loading" class="text-center text-gray-500 mb-4">
-        Chargement des flux d’actualités...
-      </p>
 
       <!-- Conteneur des flux -->
       <div id="rss-feeds-container" class="flex flex-col gap-6" aria-live="polite"></div>
     </section>
 
     <!-- Script pour charger les flux RSS -->
-    <script src="/js/actualites_it.js" defer></script>
+    <script type="module" src="/js/actualites_it.js"></script>
   </MainCard>
 </BaseLayout>

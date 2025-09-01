@@ -11,7 +11,6 @@ const RSS_FEEDS = [
   { name: 'Les Numériques', url: 'https://www.lesnumeriques.com/rss.xml', logo: '/image/logo_site_actualites/logo_lesnumeriques.gif' }
 ];
 
-// Création du conteneur HTML pour un flux RSS
 function createRSSFeedElement(feed) {
   const div = document.createElement('div');
   div.className = 'rss-feed';
@@ -37,7 +36,6 @@ function createRSSFeedElement(feed) {
   return div;
 }
 
-// Filtrer les articles de moins d'une semaine
 function isWithinLastWeek(dateString) {
   const articleDate = new Date(dateString);
   const oneWeekAgo = new Date();
@@ -45,7 +43,6 @@ function isWithinLastWeek(dateString) {
   return articleDate >= oneWeekAgo;
 }
 
-// Mettre à jour le tableau avec les articles récents
 function updateRSSFeedElement(feedElement, items) {
   const tbody = feedElement.querySelector('tbody');
   const recentItems = items.filter(item => isWithinLastWeek(item.pubDate));
@@ -63,11 +60,10 @@ function updateRSSFeedElement(feedElement, items) {
   `).join('');
 }
 
-// Récupérer les flux RSS via l'API rss2json
 async function fetchRSSFeed(feed) {
   try {
-    const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}&api_key=h61rxauzqk5odbmiwtir1rq9dvlqdf5yzfxltyxm&order_by=pubDate&order_dir=desc&count=100`);
-    const data = await response.json();
+    const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}&api_key=h61rxauzqk5odbmiwtir1rq9dvlqdf5yzfxltyxm&order_by=pubDate&order_dir=desc&count=100`);
+    const data = await res.json();
     return data.items || [];
   } catch (err) {
     console.error(`Erreur flux ${feed.name}:`, err);
@@ -75,29 +71,15 @@ async function fetchRSSFeed(feed) {
   }
 }
 
-// Initialisation des flux RSS
-async function initRSSFeeds() {
+document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('rss-feeds-container');
-  const loader = document.getElementById('rss-loading');
 
-  const feedElements = RSS_FEEDS.map(feed => {
-    const element = createRSSFeedElement(feed);
-    container.appendChild(element);
-    return { feed, element };
-  });
+  RSS_FEEDS.forEach(async feed => {
+    const feedElement = createRSSFeedElement(feed);
+    container.appendChild(feedElement);
 
-  // Récupération parallèle avec gestion des erreurs
-  await Promise.all(feedElements.map(async ({ feed, element }) => {
     const items = await fetchRSSFeed(feed);
-    if (items.length) {
-      updateRSSFeedElement(element, items);
-    } else {
-      element.querySelector('tbody').innerHTML = '<tr><td colspan="2" class="px-2 py-1">Impossible de charger les actualités</td></tr>';
-    }
-  }));
-
-  // Masquer le loader une fois toutes les requêtes terminées
-  loader.style.display = 'none';
-}
-
-document.addEventListener('DOMContentLoaded', initRSSFeeds);
+    if (items.length) updateRSSFeedElement(feedElement, items);
+    else feedElement.querySelector('tbody').innerHTML = '<tr><td colspan="2" class="px-2 py-1">Impossible de charger les actualités</td></tr>';
+  });
+});
