@@ -17,17 +17,17 @@ import MainCard from "@/components/MainCard.astro";
         <span>Dernières actualités RSS</span>
       </h1>
 
+      <!-- Loader global -->
+      <p id="rss-loading" class="text-center text-gray-500 animate-pulse mb-4">
+        Chargement des flux d’actualités...
+      </p>
+
       <!-- Conteneur des flux -->
       <div 
         id="rss-feeds-container" 
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         aria-live="polite"
-      >
-        <!-- Loader -->
-        <p class="col-span-full text-center text-gray-500 animate-pulse">
-          Chargement des flux d’actualités...
-        </p>
-      </div>
+      ></div>
     </section>
 
     <!-- Script pour charger les flux RSS -->
@@ -52,34 +52,31 @@ import MainCard from "@/components/MainCard.astro";
   @apply text-lg font-semibold;
 }
 
-/* Conteneur avec hauteur fixe + scroll */
-.rss-feed-list {
-  @apply space-y-3 overflow-y-auto pr-2;
-  max-height: 300px; /* Ajustez la hauteur selon vos besoins */
+/* Tableau scrollable */
+.rss-feed-table-container {
+  max-height: 300px;
+  overflow-y: auto;
 }
 
-.rss-feed-list::-webkit-scrollbar {
-  width: 6px;
+.rss-feed-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.rss-feed-list::-webkit-scrollbar-thumb {
-  background-color: #cbd5e0; /* gris clair */
-  border-radius: 4px;
+.rss-feed-table th,
+.rss-feed-table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
 }
 
-.rss-feed-list::-webkit-scrollbar-thumb:hover {
-  background-color: #a0aec0; /* gris moyen au survol */
+.rss-feed-table th {
+  font-weight: 600;
+  background-color: #f7fafc;
+  position: sticky;
+  top: 0;
 }
 
-.rss-feed-item a {
-  @apply block text-sm text-gray-700 hover:text-blue-600;
-}
-
-.rss-feed-item-title {
-  @apply font-medium;
-}
-
-.rss-feed-item-date {
-  @apply text-xs text-gray-500;
+.rss-feed-table a {
+  @apply text-sm text-gray-700 hover:text-blue-600;
 }
 </style>
