@@ -21,7 +21,7 @@ import MainCard from "@/components/MainCard.astro";
       <div id="rss-feeds-container" class="flex flex-col gap-6" aria-live="polite"></div>
     </section>
 
-    <!-- Script pour charger les flux RSS au clic -->
+    <!-- Script pour charger automatiquement les flux RSS -->
     <script type="module">
       const RSS_FEEDS = [
         { name: 'IT-Connect', url: 'https://www.it-connect.fr/feed/', logo: 'https://www.it-connect.fr/wp-content-itc/uploads/2017/06/IT-Connect_Flat_072017_Small_v2.png' },
@@ -105,7 +105,7 @@ import MainCard from "@/components/MainCard.astro";
 
       async function loadRSSFeeds() {
         const container = document.getElementById('rss-feeds-container');
-        if (!container || container.children.length > 0) return;
+        if (!container) return;
 
         const fragment = document.createDocumentFragment();
 
@@ -121,8 +121,8 @@ import MainCard from "@/components/MainCard.astro";
         container.appendChild(fragment);
       }
 
-      // Déclenchement au premier clic sur la page
-      document.addEventListener('click', () => {
+      // Chargement automatique au chargement de la page
+      document.addEventListener('DOMContentLoaded', () => {
         loadRSSFeeds();
       });
     </script>
