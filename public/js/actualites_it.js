@@ -1,4 +1,3 @@
-// Liste des flux RSS
 const RSS_FEEDS = [
   { name: 'IT-Connect', url: 'https://www.it-connect.fr/feed/', logo: '/image/logo_site_actualites/logo_itconnect.png' },
   { name: 'Le Monde Informatique', url: 'https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml', logo: '/image/logo_site_actualites/logo_lemondeinformatique.gif' },
@@ -12,7 +11,6 @@ const RSS_FEEDS = [
   { name: 'Les Numériques', url: 'https://www.lesnumeriques.com/rss.xml', logo: '/image/logo_site_actualites/logo_lesnumeriques.gif' }
 ];
 
-// Création d'une carte tableau pour un flux
 function createRSSFeedElement(feed) {
   const feedElement = document.createElement('div');
   feedElement.className = 'rss-feed';
@@ -35,7 +33,6 @@ function createRSSFeedElement(feed) {
   return feedElement;
 }
 
-// Filtre articles dernière semaine
 function isWithinLastWeek(dateString) {
   const articleDate = new Date(dateString);
   const oneWeekAgo = new Date();
@@ -43,7 +40,6 @@ function isWithinLastWeek(dateString) {
   return articleDate >= oneWeekAgo;
 }
 
-// Mise à jour du tableau
 function updateRSSFeedElement(feedElement, items) {
   const tbody = feedElement.querySelector('tbody');
   const recentItems = items.filter(item => isWithinLastWeek(item.pubDate));
@@ -61,18 +57,16 @@ function updateRSSFeedElement(feedElement, items) {
   `).join('');
 }
 
-// Récupération des flux via rss2json
 async function fetchRSSFeed(feed) {
   const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}&api_key=h61rxauzqk5odbmiwtir1rq9dvlqdf5yzfxltyxm&order_by=pubDate&order_dir=desc&count=100`);
   const data = await response.json();
   return data.items;
 }
 
-// Initialisation
 async function initRSSFeeds() {
   const container = document.getElementById('rss-feeds-container');
   const loader = document.getElementById('rss-loading');
-  loader.style.display = 'none'; // Supprime loader global
+  loader.style.display = 'none'; // Supprime le loader global
 
   for (const feed of RSS_FEEDS) {
     const feedElement = createRSSFeedElement(feed);

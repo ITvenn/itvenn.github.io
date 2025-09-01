@@ -23,11 +23,7 @@ import MainCard from "@/components/MainCard.astro";
       </p>
 
       <!-- Conteneur des flux -->
-      <div 
-        id="rss-feeds-container" 
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        aria-live="polite"
-      ></div>
+      <div id="rss-feeds-container" class="flex flex-col gap-6" aria-live="polite"></div>
     </section>
 
     <!-- Script pour charger les flux RSS -->
@@ -52,7 +48,7 @@ import MainCard from "@/components/MainCard.astro";
   @apply text-lg font-semibold;
 }
 
-/* Tableau scrollable */
+/* Tableau scrollable pour chaque flux */
 .rss-feed-table-container {
   max-height: 300px;
   overflow-y: auto;
