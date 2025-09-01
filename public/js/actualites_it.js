@@ -13,7 +13,7 @@ const RSS_FEEDS = [
 
 function createRSSFeedElement(feed) {
   const div = document.createElement('div');
-  div.className = 'rss-feed';
+  div.className = 'rss-feed mb-4';
   div.innerHTML = `
     <div class="rss-feed-header flex items-center gap-2 mb-2">
       <img src="${feed.logo}" alt="${feed.name} logo" class="rss-feed-logo w-10 h-10 object-contain">
@@ -36,28 +36,35 @@ function createRSSFeedElement(feed) {
   return div;
 }
 
-function isWithinLastWeek(dateString) {
+function isWithinLast7Days(dateString) {
   const articleDate = new Date(dateString);
-  const oneWeekAgo = new Date();
-  oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-  return articleDate >= oneWeekAgo;
+  const now = new Date();
+  const sevenDaysAgo = new Date();
+  sevenDaysAgo.setDate(now.getDate() - 7);
+  return articleDate >= sevenDaysAgo && articleDate <= now;
 }
 
 function updateRSSFeedElement(feedElement, items) {
   const tbody = feedElement.querySelector('tbody');
-  const recentItems = items.filter(item => isWithinLastWeek(item.pubDate));
+  const recentItems = items.filter(item => isWithinLast7Days(item.pubDate));
 
   if (!recentItems.length) {
-    tbody.innerHTML = '<tr><td colspan="2" class="px-2 py-1">Pas d\'articles cette semaine</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="2" class="px-2 py-1">Pas d\'articles ces 7 derniers jours</td></tr>';
     return;
   }
 
-  tbody.innerHTML = recentItems.map(item => `
-    <tr>
+  const fragment = document.createDocumentFragment();
+  recentItems.forEach(item => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
       <td class="px-2 py-1">${new Date(item.pubDate).toLocaleDateString('fr-FR')}</td>
       <td class="px-2 py-1"><a href="${item.link}" target="_blank" class="text-blue-600 hover:underline">${item.title}</a></td>
-    </tr>
-  `).join('');
+    `;
+    fragment.appendChild(tr);
+  });
+
+  tbody.innerHTML = '';
+  tbody.appendChild(fragment);
 }
 
 async function fetchRSSFeed(feed) {
@@ -73,13 +80,17 @@ async function fetchRSSFeed(feed) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('rss-feeds-container');
+  const fragment = document.createDocumentFragment();
 
-  RSS_FEEDS.forEach(async feed => {
+  RSS_FEEDS.forEach(feed => {
     const feedElement = createRSSFeedElement(feed);
-    container.appendChild(feedElement);
+    fragment.appendChild(feedElement);
 
-    const items = await fetchRSSFeed(feed);
-    if (items.length) updateRSSFeedElement(feedElement, items);
-    else feedElement.querySelector('tbody').innerHTML = '<tr><td colspan="2" class="px-2 py-1">Impossible de charger les actualités</td></tr>';
+    fetchRSSFeed(feed).then(items => {
+      if (items.length) updateRSSFeedElement(feedElement, items);
+      else feedElement.querySelector('tbody').innerHTML = '<tr><td colspan="2" class="px-2 py-1">Impossible de charger les actualités</td></tr>';
+    });
   });
+
+  container.appendChild(fragment);
 });
