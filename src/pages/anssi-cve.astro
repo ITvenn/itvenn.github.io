@@ -6,26 +6,34 @@ import GitHubStats from "@/components/mdx/GitHubStats.astro";
 import RepositoryCard from "@/components/mdx/RepositoryCard.astro";
 ---
 
-<BaseLayout title="Anssi CVE">
+<BaseLayout title="ANSSI CVE">
   <MainCard
     title="Veille cybersécurité – Alertes de l’ANSSI"
     description="Explorer les dernières vulnérabilités CVE publiées par l'ANSSI."
     textOverlay="ANSSI"
     infoIcon="lucide:code-2"
   >
-    <!--  Anssi CVE -->
+    <!-- Section ANSSI CVE -->
     <section class="py-4">
+      <h1 class="text-3xl font-bold mb-8">ANSSI – Dernières alertes CVE</h1>
+      
       <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
         <Icon name="lucide:folder" class="w-6 h-6 text-primary" />
         <span>Dernières CVE publiées</span>
       </h2>
+
       <div class="flex justify-center mt-10">
         <div id="security-updates-list" aria-live="polite">
-          <p>Chargement des alertes de sécurité...</p>
+          <!-- Loader d’attente -->
+          <div class="flex flex-col items-center text-gray-500 animate-pulse">
+            <Icon name="lucide:loader-2" class="w-8 h-8 animate-spin mb-2" />
+            <p>Chargement des alertes de sécurité...</p>
+          </div>
         </div>
       </div>
     </section>
-    <!-- Script intégré pour charger les alertes de l'ANSSI -->
-    <script is:inline src="/public/js/feed-anssi.js"></script>
+
+    <!-- Script externe pour charger les alertes de l’ANSSI -->
+    <script src="/js/feed-anssi.js" defer></script>
   </MainCard>
 </BaseLayout>
