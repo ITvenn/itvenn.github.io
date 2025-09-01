@@ -1,9 +1,9 @@
-// Version v2.0
+// Version v2.1
 const RSS_FEEDS = [
     {
         name: 'IT-Connect',
         url: 'https://www.it-connect.fr/feed/',
-        logo: '/imgage/logo_site_actualites/logo_itconnect.png'
+        logo: 'https://www.it-connect.fr/wp-content-itc/uploads/2017/06/IT-Connect_Flat_072017_Small_v2.png'
     },
     {
         name: 'Le Monde Informatique',
@@ -94,14 +94,19 @@ function updateRSSFeedElement(feedElement, items) {
 }
 
 async function fetchRSSFeed(feed) {
-    const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}&api_key=h61rxauzqk5odbmiwtir1rq9dvlqdf5yzfxltyxm&order_by=pubDate&order_dir=desc&count=100`);
+    const response = await fetch(
+        `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}&api_key=h61rxauzqk5odbmiwtir1rq9dvlqdf5yzfxltyxm&order_by=pubDate&order_dir=desc&count=100`
+    );
     const data = await response.json();
     return data.items;
 }
 
 async function initRSSFeeds() {
     const container = document.getElementById('rss-feeds-container');
-    
+
+    // 🔹 Supprimer le texte "Chargement des flux d’actualités..." dès le début
+    container.innerHTML = "";
+
     for (const feed of RSS_FEEDS) {
         const feedElement = createRSSFeedElement(feed);
         container.appendChild(feedElement);
@@ -111,7 +116,8 @@ async function initRSSFeeds() {
             updateRSSFeedElement(feedElement, items);
         } catch (error) {
             console.error(`Erreur lors de la récupération du flux RSS pour ${feed.name}:`, error);
-            feedElement.querySelector('.rss-feed-list').innerHTML = '<li class="rss-feed-item">Impossible de charger les actualités pour le moment.</li>';
+            feedElement.querySelector('.rss-feed-list').innerHTML = 
+                '<li class="rss-feed-item">Impossible de charger les actualités pour le moment.</li>';
         }
     }
 }

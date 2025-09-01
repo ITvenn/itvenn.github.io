@@ -23,7 +23,7 @@ import MainCard from "@/components/MainCard.astro";
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         aria-live="polite"
       >
-        <!-- Les flux seront injectés ici par le script -->
+        <!-- Loader -->
         <p class="col-span-full text-center text-gray-500 animate-pulse">
           Chargement des flux d’actualités...
         </p>
@@ -37,26 +37,48 @@ import MainCard from "@/components/MainCard.astro";
 
 <style>
 .rss-feed {
-  @apply bg-white shadow-md rounded-xl p-4 border border-gray-200 transition hover:shadow-lg;
+  @apply bg-white shadow-md rounded-xl p-4 border border-gray-200 transition hover:shadow-lg flex flex-col;
 }
+
 .rss-feed-header {
   @apply flex items-center gap-3 mb-4;
 }
+
 .rss-feed-logo {
   @apply w-10 h-10 object-contain;
 }
+
 .rss-feed-title {
   @apply text-lg font-semibold;
 }
+
+/* Conteneur avec hauteur fixe + scroll */
 .rss-feed-list {
-  @apply space-y-3;
+  @apply space-y-3 overflow-y-auto pr-2;
+  max-height: 300px; /* Ajustez la hauteur selon vos besoins */
 }
+
+.rss-feed-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rss-feed-list::-webkit-scrollbar-thumb {
+  background-color: #cbd5e0; /* gris clair */
+  border-radius: 4px;
+}
+
+.rss-feed-list::-webkit-scrollbar-thumb:hover {
+  background-color: #a0aec0; /* gris moyen au survol */
+}
+
 .rss-feed-item a {
   @apply block text-sm text-gray-700 hover:text-blue-600;
 }
+
 .rss-feed-item-title {
   @apply font-medium;
 }
+
 .rss-feed-item-date {
   @apply text-xs text-gray-500;
 }
