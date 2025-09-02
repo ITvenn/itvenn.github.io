@@ -38,5 +38,11 @@ import RepositoryCard from "@/components/mdx/RepositoryCard.astro";
 
     <!-- Script externe pour charger les alertes de l’ANSSI -->
     <script is:inline src="/js/feed-anssi.js"></script>
+    <script type="text/javascript">
+      // Recharger la page après 2 secondes (2000 ms)
+      setTimeout(() => {
+        location.reload(); // force le F5
+      }, 2000);
+    </script>
   </MainCard>
 </BaseLayout>
