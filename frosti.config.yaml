@@ -24,9 +24,8 @@ site:
       target: _self
     - id: security
       text: "ANSSI & CVE"
-      #href: "/anssi-cve"
+      href: "/anssi-cve"
       svg: "material-symbols:shield-outline"
-      onclick: "window.location.href='/anssi-cve'"
     - id: tutorials
       text: "Tutoriels"
       href: "/blog"
