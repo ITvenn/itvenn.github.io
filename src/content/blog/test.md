@@ -75,7 +75,12 @@ Puis changer les variables « BIND_PRIV » et « RUNAS_UID0 » avec la valeu
 
 Pour finir cliquer sur « Suivant » et « Effectué »
 
-Le conteneur se lancera automatiquement et vous pourrez vous connecter après 1 ou 2 min d'attente et vous pourrez accéder au contrôleur via l'adresse suivant : de votre NAS\>:8080 ou bien de votre NAS\>:8443 .
+Le conteneur se lancera automatiquement et vous pourrez vous connecter après 1 ou 2 min d'attente et vous pourrez accéder au contrôleur via l'adresse suivante : 
+
+```markdown
+http://<ip_nas>:8080
+https://<ip_nas>:8443
+```
 
 # Configuration du Contrôleur Wi-Fi
 
