@@ -124,8 +124,8 @@ Tous d'abord sur l'ancien contrôleur wifi vous devrez vous rendre dans la parti
 
 Puis descendez pour arriver dans la partie « Oublier cet appareil » et cliquer sur « oublier » pour faire oublier vos bornes elle se réinitialiserons toute seul à la suite de cette manipulation :
 
-![Une image contenant capture d'écran.](/image/tuto_ubiquiti/Image20.png){width="6.3in" height="3.0548611111111112in"}
+![Une image contenant capture d'écran.](/image/tuto_ubiquiti/Image20.png)
 
 Maintenant pour adopter vos borne sur le nouveau contrôleur wifi vous devez vous rendre sur le nouveau contrôleur suite a la manipulation précédente dans la partie « Equipements » vous devriez voir remonter votre borne wifi cliquer dessus et cliquer sur « Adopt device » la borne vas être adopter et mise à jour.
 
-![](/image/tuto_ubiquiti/Image21.png){width="5.096755249343832in" height="1.5902777777777777in"}
+![](/image/tuto_ubiquiti/Image21.png)
