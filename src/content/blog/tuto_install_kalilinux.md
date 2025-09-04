@@ -2,7 +2,7 @@
 title: "Installation d'une machine virtuelle Kali Linux sur Proxmox."
 description: "Cette procédure décrit les étapes pour installer et configurer une machine virtuelle Kali Linux sur l’hyperviseur Proxmox, afin de disposer d’un environnement sécurisé pour les tests et expérimentations."
 pubDate: "Sep 04 2025"
-image: <img width="1536" height="1024" alt="2027a5cd-d096-4cb2-916c-c8c959d3b316" src="https://github.com/user-attachments/assets/709ba9f9-6039-4f02-bbd7-fec34e1ead80" />
+image: <img src="https://github.com/user-attachments/assets/709ba9f9-6039-4f02-bbd7-fec34e1ead80" />
 categories:
   - Documentation
 tags:
