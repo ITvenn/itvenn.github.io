@@ -59,3 +59,38 @@ async function loadAllRSSFeeds() {
             const date = new Date(item.pubDate).toLocaleDateString('fr-FR');
 
             html += `
+                <tr class="rss-row cursor-pointer hover:bg-gray-100">
+                    <td class="p-2">${date}</td>
+                    <td class="p-2">${item.source}</td>
+                    <td class="p-2">
+                        <a href="${item.link}" target="_blank" class="text-blue-600 underline">
+                            ${truncateText(item.title, 100)}
+                        </a>
+                    </td>
+                </tr>
+                <tr><td colspan="3"><hr class="border-dashed border-gray-300 my-2"></td></tr>
+            `;
+        });
+
+        html += "</tbody></table>";
+        container.innerHTML = html;
+
+        container.querySelectorAll('.rss-row').forEach(row => {
+            row.addEventListener('click', () => {
+                const link = row.querySelector('a');
+                if (link) window.open(link.href, '_blank');
+            });
+        });
+
+    } catch (error) {
+        console.error("Erreur globale :", error);
+        container.innerHTML = "<p class='text-red-600'>Impossible de charger les flux RSS.</p>";
+    }
+}
+
+function truncateText(text, maxLength) {
+    return text.length <= maxLength ? text : text.substring(0, maxLength) + "...";
+}
+
+document.addEventListener("DOMContentLoaded", loadAllRSSFeeds);
+document.addEventListener("astro:navigate", loadAllRSSFeeds);
