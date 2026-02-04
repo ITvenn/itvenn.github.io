@@ -177,9 +177,25 @@ Il est recommandé de séparer les répertoires **/home**, **/var** et **/tmp** 
 - `/home` : données des utilisateurs  
 - `/var` : journaux, bases de données, fichiers temporaires d’applications  
 - `/tmp` : fichiers temporaires du système et des programmes  
-
 ![](/image/tuto_install_kali/30.png)
 
 Confirmez ensuite le partitionnement :  
 ![](/image/tuto_install_kali/31.png)
+
+Sélectionnez ensuite les différents environnements et outils à installer.  
+Si vous ne souhaitez **pas** d’interface graphique, décochez les options **Desktop environment** et **XFCE** :  
+![](/image/tuto_install_kali/32.png)
+
+Installez ensuite **GRUB**, indispensable pour pouvoir démarrer votre système :  
+![](/image/tuto_install_kali/33.png)
+
+Choisissez le disque sur lequel vous souhaitez installer GRUB :  
+![](/image/tuto_install_kali/35.png)
+
+Cliquez ensuite sur **Continue** pour redémarrer la VM et finaliser l’installation :  
+![](/image/tuto_install_kali/34.png)
+
+Une fois le système démarré, vous pouvez vous connecter avec les identifiants que vous avez créés :  
+![](/image/tuto_install_kali/37.png)
+
 
