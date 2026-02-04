@@ -11,13 +11,18 @@ const RSS_FEEDS = [
   { name: 'Les Numériques', url: 'https://www.lesnumeriques.com/rss.xml', logo: '/image/logo_site_actualites/logo_lesnumeriques.gif' }
 ];
 
-function createRSSFeedElement(feed) {
+const API_BASE = "https://api.rss2json.com/v1/api.json?order_by=pubDate&order_dir=desc&count=100&api_key=h61rxauzqk5odbmiwtir1rq9dvlqdf5yzfxltyxm&rss_url=";
+
+const isWithinLast7Days = date =>
+  new Date(date) >= new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+
+function createRSSFeedElement({ name, logo }) {
   const div = document.createElement('div');
   div.className = 'rss-feed mb-4';
   div.innerHTML = `
     <div class="rss-feed-header flex items-center gap-2 mb-2">
-      <img src="${feed.logo}" alt="${feed.name} logo" class="rss-feed-logo w-10 h-10 object-contain">
-      <h2 class="rss-feed-title text-xl font-semibold">${feed.name}</h2>
+      <img src="${logo}" alt="${name} logo" class="rss-feed-logo w-10 h-10 object-contain">
+      <h2 class="rss-feed-title text-xl font-semibold">${name}</h2>
     </div>
     <div class="rss-feed-table-container overflow-x-auto">
       <table class="rss-feed-table w-full text-left border-collapse">
@@ -36,44 +41,32 @@ function createRSSFeedElement(feed) {
   return div;
 }
 
-function isWithinLast7Days(dateString) {
-  const articleDate = new Date(dateString);
-  const now = new Date();
-  const sevenDaysAgo = new Date();
-  sevenDaysAgo.setDate(now.getDate() - 7);
-  return articleDate >= sevenDaysAgo && articleDate <= now;
-}
-
 function updateRSSFeedElement(feedElement, items) {
   const tbody = feedElement.querySelector('tbody');
-  const recentItems = items.filter(item => isWithinLast7Days(item.pubDate));
+  const recentItems = items.filter(i => isWithinLast7Days(i.pubDate));
 
   if (!recentItems.length) {
-    tbody.innerHTML = '<tr><td colspan="2" class="px-2 py-1">Pas d\'articles ces 7 derniers jours</td></tr>';
+    tbody.innerHTML = `<tr><td colspan="2" class="px-2 py-1">Pas d'articles ces 7 derniers jours</td></tr>`;
     return;
   }
 
-  const fragment = document.createDocumentFragment();
-  recentItems.forEach(item => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
+  tbody.innerHTML = recentItems.map(item => `
+    <tr>
       <td class="px-2 py-1">${new Date(item.pubDate).toLocaleDateString('fr-FR')}</td>
-      <td class="px-2 py-1"><a href="${item.link}" target="_blank" class="text-blue-600 hover:underline">${item.title}</a></td>
-    `;
-    fragment.appendChild(tr);
-  });
-
-  tbody.innerHTML = '';
-  tbody.appendChild(fragment);
+      <td class="px-2 py-1">
+        <a href="${item.link}" target="_blank" class="text-blue-600 hover:underline">${item.title}</a>
+      </td>
+    </tr>
+  `).join('');
 }
 
-async function fetchRSSFeed(feed) {
+async function fetchRSSFeed(url) {
   try {
-    const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}&api_key=h61rxauzqk5odbmiwtir1rq9dvlqdf5yzfxltyxm&order_by=pubDate&order_dir=desc&count=100`);
+    const res = await fetch(API_BASE + encodeURIComponent(url));
     const data = await res.json();
     return data.items || [];
   } catch (err) {
-    console.error(`Erreur flux ${feed.name}:`, err);
+    console.error("Erreur flux:", url, err);
     return [];
   }
 }
@@ -84,17 +77,27 @@ async function loadRSSFeeds() {
 
   const fragment = document.createDocumentFragment();
 
-  for (const feed of RSS_FEEDS) {
-    const feedElement = createRSSFeedElement(feed);
-    fragment.appendChild(feedElement);
-
-    const items = await fetchRSSFeed(feed);
-    if (items.length) updateRSSFeedElement(feedElement, items);
-    else feedElement.querySelector('tbody').innerHTML = '<tr><td colspan="2" class="px-2 py-1">Impossible de charger les actualités</td></tr>';
-  }
+  // Préparation des éléments DOM
+  const feedElements = RSS_FEEDS.map(feed => {
+    const el = createRSSFeedElement(feed);
+    fragment.appendChild(el);
+    return { feed, el };
+  });
 
   container.appendChild(fragment);
+
+  // Chargement parallèle des flux
+  const results = await Promise.all(
+    RSS_FEEDS.map(f => fetchRSSFeed(f.url))
+  );
+
+  // Mise à jour des tableaux
+  results.forEach((items, i) => {
+    const { el } = feedElements[i];
+    if (items.length) updateRSSFeedElement(el, items);
+    else el.querySelector('tbody').innerHTML =
+      `<tr><td colspan="2" class="px-2 py-1">Impossible de charger les actualités</td></tr>`;
+  });
 }
 
-// Chargement automatique au rendu complet de la page
 loadRSSFeeds();
