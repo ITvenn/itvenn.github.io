@@ -16,7 +16,7 @@ const API_BASE = "https://api.rss2json.com/v1/api.json?order_by=pubDate&order_di
 const isWithinLast7Days = date =>
   new Date(date) >= new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
 
-function createRSSFeedElement({ name, logo }) {
+function createRSSFeedElement({ name }) {
   const div = document.createElement('div');
   div.className = 'rss-feed mb-4';
   div.innerHTML = `
