@@ -21,7 +21,6 @@ function createRSSFeedElement({ name, logo }) {
   div.className = 'rss-feed mb-4';
   div.innerHTML = `
     <div class="rss-feed-header flex items-center gap-2 mb-2">
-      <img src="${logo}" alt="${name} logo" class="rss-feed-logo w-10 h-10 object-contain">
       <h2 class="rss-feed-title text-xl font-semibold">${name}</h2>
     </div>
     <div class="rss-feed-table-container overflow-x-auto">
