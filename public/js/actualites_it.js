@@ -1,14 +1,14 @@
 const RSS_FEEDS = [
-  { name: 'IT-Connect', url: 'https://www.it-connect.fr/feed/', logo: '/image/logo_site_actualites/logo_it-connect.png' },
-  { name: 'Le Monde Informatique', url: 'https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml', logo: '/image/logo_site_actualites/logo_lemondeinformatique.gif' },
-  { name: 'Korben.info', url: 'https://korben.info/feed', logo: 'https://korben.info/img/logo-small.svg' },
-  { name: 'ZDNet', url: 'https://www.zdnet.fr/feeds/rss/actualites/', logo: 'https://www.zdnet.fr/wp-content/themes/cnet-zdnet/zdnet/assets/images/icons/svg/zdnet-logo--midnght-horizontal.svg' },
-  { name: 'LeBigData.fr', url: 'https://www.lebigdata.fr/feed', logo: '/image/logo_site_actualites/logo_lebigdata.gif' },
-  { name: 'FrAndroid', url: 'https://www.frandroid.com/feed', logo: '/image/logo_site_actualites/logo_frandroid.gif' },
-  { name: "Tom's Hardware", url: 'https://www.tomshardware.fr/feed/', logo: '/image/logo_site_actualites/logo_tomshardware.gif' },
-  { name: 'Overclocking Made in France', url: 'https://www.overclocking.com/feed/', logo: '/image/logo_site_actualites/logo_overclocking.gif' },
-  { name: 'Generation-NT', url: 'https://www.generation-nt.com/export/rss.xml', logo: '/image/logo_site_actualites/logo_gnt.gif' },
-  { name: 'Les Numériques', url: 'https://www.lesnumeriques.com/rss.xml', logo: '/image/logo_site_actualites/logo_lesnumeriques.gif' }
+  { name: 'IT-Connect', url: 'https://www.it-connect.fr/feed/'},
+  { name: 'Le Monde Informatique', url: 'https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml'},
+  { name: 'Korben.info', url: 'https://korben.info/feed',},
+  { name: 'ZDNet', url: 'https://www.zdnet.fr/feeds/rss/actualites/',},
+  { name: 'LeBigData.fr', url: 'https://www.lebigdata.fr/feed',},
+  { name: 'FrAndroid', url: 'https://www.frandroid.com/feed',},
+  { name: "Tom's Hardware", url: 'https://www.tomshardware.fr/feed/',},
+  { name: 'Overclocking Made in France', url: 'https://www.overclocking.com/feed/',},
+  { name: 'Generation-NT', url: 'https://www.generation-nt.com/export/rss.xml',},
+  { name: 'Les Numériques', url: 'https://www.lesnumeriques.com/rss.xml',}
 ];
 
 const API_BASE = "https://api.rss2json.com/v1/api.json?order_by=pubDate&order_dir=desc&count=100&api_key=h61rxauzqk5odbmiwtir1rq9dvlqdf5yzfxltyxm&rss_url=";
