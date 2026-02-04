@@ -75,9 +75,10 @@ async function loadRSSFeeds() {
   const container = document.getElementById('rss-feeds-container');
   if (!container) return;
 
+  container.innerHTML = ""; // Important pour Astro SPA
+
   const fragment = document.createDocumentFragment();
 
-  // Préparation des éléments DOM
   const feedElements = RSS_FEEDS.map(feed => {
     const el = createRSSFeedElement(feed);
     fragment.appendChild(el);
@@ -86,12 +87,10 @@ async function loadRSSFeeds() {
 
   container.appendChild(fragment);
 
-  // Chargement parallèle des flux
   const results = await Promise.all(
     RSS_FEEDS.map(f => fetchRSSFeed(f.url))
   );
 
-  // Mise à jour des tableaux
   results.forEach((items, i) => {
     const { el } = feedElements[i];
     if (items.length) updateRSSFeedElement(el, items);
@@ -100,4 +99,10 @@ async function loadRSSFeeds() {
   });
 }
 
+// Chargement initial
 loadRSSFeeds();
+
+// Support Astro SPA-like
+document.addEventListener('astro:navigate', () => {
+  loadRSSFeeds();
+});
