@@ -13,17 +13,33 @@ import RepositoryCard from "@/components/mdx/RepositoryCard.astro";
     textOverlay="RSS"
     infoIcon="lucide:rss"
   >
+    <!-- Section RSS -->
     <section class="py-4">
-      <h1 class="text-3xl font-bold mb-8 flex items-center gap-2">
-        <Icon name="lucide:rss" class="w-8 h-8 text-orange-500" />
-        <span>Dernières actualités IT</span>
-      </h1>
+      <h1 class="text-3xl font-bold mb-8">Actualités IT – Derniers flux RSS</h1>
 
-      <!-- Conteneur des flux -->
-      <div id="rss-feeds-container" class="flex flex-col gap-6" aria-live="polite"></div>
+      <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+        <Icon name="lucide:rss" class="w-6 h-6 text-orange-500" />
+        <span>Dernières actualités publiées</span>
+      </h2>
+
+      <div class="flex justify-center mt-10">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <section id="rss-feeds">
+                <div id="rss-feeds-container" aria-live="polite">
+                  <p>Chargement des actualités...</p>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- Script externe pour charger les flux RSS -->
+      <script is:inline src="/js/actualites_it.js"></script>
     </section>
-
-    <!-- Chargement du script séparé -->
-    <script is:inline src="/js/actualites_it.js"></script>
   </MainCard>
 </BaseLayout>
