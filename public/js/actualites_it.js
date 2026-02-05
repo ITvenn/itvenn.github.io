@@ -63,3 +63,8 @@ async function loadAllFeeds() {
 }
 
 loadAllFeeds();
+
+// Optionnel : pour Astro SPA-like, réexécution à chaque navigation interne
+document.addEventListener('astro:navigate', () => {
+    loadAllFeed();
+});
