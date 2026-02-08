@@ -41,6 +41,16 @@ site:
       href: "/about"
       svg: "material-symbols:person-outline-rounded"
       target: _self
+    - id: AMP
+      text: "Game Server Portal"
+      href: "https://hv-amp-01.hamelv.fr"
+      svg: "mdi:gamepad-variant-outline"   # Icône représentant les jeux/serveurs
+      target: _blank
+    - id: JELLYFIN
+      text: "Media Portal"
+      href: "https://hv-jese-01.hamelv.fr"
+      svg: "mdi:movie-open-outline"        # Icône représentant le média/vidéo
+      target: _blank
 
 user:
   name: ITvenn # User's name
